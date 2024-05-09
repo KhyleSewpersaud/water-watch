@@ -1,0 +1,15 @@
+services:
+  front-end:
+    build: ./front-end
+    container_name: front-end_c
+    ports:
+      - '5173:5173'
+    stdin_open: true
+    tty: true
+  back-end:
+    build: ./back-end
+    container_name: back-end_c
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./back-end:/app
