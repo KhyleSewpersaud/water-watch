@@ -25,7 +25,7 @@ Technology:
     - DevOps: GitHub Actions, Docker, Jest
     - Deployment: TBD
 
-UI: 
+UI: https://www.figma.com/file/ElgiZMe5Cs1vZgvm13mcUU/Water-Watch?type=design&node-id=0-1&mode=design&t=or5iOpJouV6pW35O-0  
 
 
 
