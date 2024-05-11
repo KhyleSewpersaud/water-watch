@@ -9,10 +9,10 @@ export default {
     extend: {
       colors: {
         'beige': '#E5DDC5',
-        'light-beige': '#F1EEDC',
-        'light-blue': '#3CAACE',
+        'lightbeige': '#F1EEDC',
+        'lightblue': '#3CAACE',
         'terq': '#3ACAFA',
-        'dark-blue': '#074173',
+        'darkblue': '#074173',
         'brown': '#70675A',
         'grey': '#9F9F9F'
       },
@@ -29,16 +29,16 @@ export default {
       {
         mytheme: {
           'beige': '#E5DDC5',
-          'light-beige': '#F1EEDC',
-          'light-blue': '#3CAACE',
+          'lightbeige': '#F1EEDC',
+          'lightblue': '#3CAACE',
           'terq': '#3ACAFA',
-          'dark-blue': '#074173',
+          'darkblue': '#074173',
           'brown': '#70675A',
           'grey': '#9F9F9F'
         },
       },
     ],
-    darkTheme: "", // name of one of the included themes for dark mode
+    darkTheme: "false", // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
     utils: true, // adds responsive and modifier utility classes
