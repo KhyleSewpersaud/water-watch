@@ -28,13 +28,14 @@ export default {
     themes: [
       {
         mytheme: {
-          'beige': '#E5DDC5',
-          'lightbeige': '#F1EEDC',
-          'lightblue': '#3CAACE',
-          'terq': '#3ACAFA',
-          'darkblue': '#074173',
-          'brown': '#70675A',
-          'grey': '#9F9F9F'
+          'primary': '#E5DDC5',
+          'secondary': '#F1EEDC',
+          'accent': '#3CAACE',
+          'base-100': '#E5DDC5',
+          'info': '#074173',
+          'success': '#70675A',
+          'warning': '#9F9F9F',
+          'error': '#0f766e',
         },
       },
     ],
@@ -44,7 +45,7 @@ export default {
     utils: true, // adds responsive and modifier utility classes
     prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-    themeRoot: "", // The element that receives theme color CSS variables
+    themeRoot: ":root", // The element that receives theme color CSS variables
   },
 }
 

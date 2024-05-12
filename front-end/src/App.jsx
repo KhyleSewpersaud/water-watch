@@ -1,4 +1,5 @@
 import "./App.css";
+import Questions from "./components/Questions.jsx"
 import nalgene from "./assets/nalgene.png";
 import regularmug from "./assets/regularmug.png";
 import purelife from "./assets/purelife.png";
@@ -25,7 +26,7 @@ function App() {
           <h2 className="text-darkblue text-8xl font-semibold m-2">
             Enough Water?
           </h2>
-          <button className="btn bg-teal-700 hover:bg-sky-950 text-white text-2xl m-2 my-8 w-1/2 min-w-min border-transparent">
+          <button className="btn btn-error text-white text-2xl m-2 my-8 w-1/2 min-w-min border-transparent">
             Check
           </button>
         </div>
@@ -56,6 +57,8 @@ function App() {
           </div>
         </div>
       </div>
+      <Questions />
+      <div className="my-40">temp</div>
     </>
   );
 }
