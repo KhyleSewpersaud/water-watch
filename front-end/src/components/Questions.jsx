@@ -23,9 +23,7 @@ function Questions() {
               00;00;00
             </div>
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href="#slide4" className="btn btn-circle">
-                ❮
-              </a>
+              <div></div>
               <a href="#slide2" className="btn btn-circle">
                 ❯
               </a>
@@ -33,13 +31,17 @@ function Questions() {
           </div>
           <div
             id="slide2"
-            className="carousel-item relative w-full flex flex-col"
+            className="carousel-item relative w-full flex flex-col items-center justify-center"
           >
-            <div className="text-brown font-bold text-2xl flex justify-center my-10">
-              What Time Did You Wake Up Todayfaf?
-            </div>
-            <div className="text-lightblue font-extrabold text-4xl flex justify-center my-32 pb-28">
-              00;00;00fa
+            <div className="flex justify-around">
+              <div className="text-center w-full">
+                <h2>Gender</h2>
+                <h2>Male</h2>
+              </div>
+              <div className="text-center w-full">
+                <h2>Weight</h2>
+                <h2>100</h2>
+              </div>
             </div>
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
               <a href="#slide1" className="btn btn-circle">
@@ -55,17 +57,38 @@ function Questions() {
             className="carousel-item relative w-full flex flex-col"
           >
             <div className="text-brown font-bold text-2xl flex justify-center my-10">
-              What Time Did You Wake Up Toda22222222?
+              External Factors
             </div>
-            <div className="text-lightblue font-extrabold text-4xl flex justify-center my-32 pb-28">
-              00;00;0031313
+            <div className="text-center w-full">
+              <h2>Minutes of Physical Activity per Day</h2>
+              <h2>xx</h2>
+            </div>
+            <div className="text-center w-full">
+              <h2>Climate in Your Area</h2>
+              <h2 className="">*Dropdown</h2>
             </div>
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
               <a href="#slide2" className="btn btn-circle">
                 ❮
               </a>
-              <a href="#slide1" className="btn btn-circle">
+              <a href="#slide4" className="btn btn-circle">
                 ❯
+              </a>
+            </div>
+          </div>
+          <div
+            id="slide4"
+            className="carousel-item relative w-full flex flex-col"
+          >
+            <div className="text-brown font-bold text-2xl flex justify-center my-10">
+              <h2>Your Water Intake So Far</h2>
+            </div>
+            <div className="text-center w-full">
+              <h2>Use familar bottles and cups to guess how much water you've drank today</h2>
+            </div>
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <a href="#slide3" className="btn btn-circle">
+                ❮
               </a>
             </div>
           </div>

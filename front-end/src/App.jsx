@@ -1,5 +1,6 @@
 import "./App.css";
 import Questions from "./components/Questions.jsx"
+import Results from "./components/Results.jsx"
 import nalgene from "./assets/nalgene.png";
 import regularmug from "./assets/regularmug.png";
 import purelife from "./assets/purelife.png";
@@ -58,7 +59,8 @@ function App() {
         </div>
       </div>
       <Questions />
-      <div className="my-40">temp</div>
+      <Results />
+
     </>
   );
 }
