@@ -1,6 +1,7 @@
 import "./App.css";
-import Questions from "./components/Questions.jsx"
-import Results from "./components/Results.jsx"
+import { useRef } from "react";
+import Questions from "./components/Questions.jsx";
+import Results from "./components/Results.jsx";
 import nalgene from "./assets/nalgene.png";
 import regularmug from "./assets/regularmug.png";
 import purelife from "./assets/purelife.png";
@@ -9,6 +10,12 @@ import starbuckscup from "./assets/starbuckscup.png";
 import addition from "./assets/addition.png";
 
 function App() {
+  const scrollToQuestionRef = useRef();
+
+  const scrollToQuestion = () => {
+    scrollToQuestionRef.current.scrollIntoView({ behavior: 'smooth' })
+  };
+
   return (
     <>
       <div className="flex justify-center flex-auto">
@@ -27,7 +34,10 @@ function App() {
           <h2 className="text-darkblue text-8xl font-semibold m-2">
             Enough Water?
           </h2>
-          <button className="btn btn-error text-white text-2xl m-2 my-8 w-1/2 min-w-min border-transparent">
+          <button
+            className="btn btn-error text-white text-2xl m-2 my-8 w-1/2 min-w-min border-transparent"
+            onClick={scrollToQuestion}
+          >
             Check
           </button>
         </div>
@@ -58,9 +68,8 @@ function App() {
           </div>
         </div>
       </div>
-      <Questions />
+      <Questions ref={scrollToQuestionRef} />
       <Results />
-
     </>
   );
 }

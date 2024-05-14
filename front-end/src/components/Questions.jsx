@@ -1,9 +1,10 @@
 import "../App.jsx";
+import { forwardRef } from "react";
 
-function Questions() {
+const Questions = forwardRef((props, ref) => {
   return (
     <>
-      <div className="flex justify-center my-8">
+      <div className="flex justify-center my-8" ref={ref}>
         <progress
           className="progress progress-success w-56"
           value="20"
@@ -84,7 +85,7 @@ function Questions() {
               <h2>Your Water Intake So Far</h2>
             </div>
             <div className="text-center w-full">
-              <h2>Use familar bottles and cups to guess how much water you've drank today</h2>
+              <h2>Use familar bottles and cups to guess how much water you have drank today</h2>
             </div>
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
               <a href="#slide3" className="btn btn-circle">
@@ -96,6 +97,8 @@ function Questions() {
       </div>
     </>
   );
-}
+});
+
+Questions.displayName = 'Questions';
 
 export default Questions;
