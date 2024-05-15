@@ -1,6 +1,7 @@
 import "../App.jsx";
-import { forwardRef, useState, useEffect } from "react";
+import { forwardRef, useState } from "react";
 import TimePicker from "./TimePicker.jsx";
+import Intake from "./Intake.jsx";
 
 const Questions = forwardRef((props, ref) => {
   const prev = () => {
@@ -89,19 +90,18 @@ const Questions = forwardRef((props, ref) => {
               <div className="flex justify-center h-full items-center ">
                 <div className="flex flex-col justify-center text-center w-full h-full">
                   <div className="flex flex-col justify-around h-1/2 w-full">
-                                    <h2 className="text-brown text-5xl font-semibold mb-10 mt-2">
-                    Outside Climate
-                  </h2>
-                  <div className="flex justify-center m-8">
-                    <select className="w-1/2 bg-lightblue rounded-md text-3xl">
-                      <option value="cold">Cold</option>
-                      <option value="neutral">Neutral</option>
-                      <option value="warm">Warm</option>
-                      <option value="hot">Hot</option>
-                    </select>
+                    <h2 className="text-brown text-5xl font-semibold mb-10 mt-2">
+                      Outside Climate
+                    </h2>
+                    <div className="flex justify-center m-8">
+                      <select className="w-1/2 bg-lightblue rounded-md text-3xl">
+                        <option value="cold">Cold</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="warm">Warm</option>
+                        <option value="hot">Hot</option>
+                      </select>
+                    </div>
                   </div>
-                  </div>
-  
                 </div>
                 <div className="text-center w-full">
                   <h2 className="text-brown text-5xl font-semibold">
@@ -119,13 +119,13 @@ const Questions = forwardRef((props, ref) => {
             </div>
             <div
               id="slide4"
-              className="carousel-item relative w-full flex flex-col"
+              className="carousel-item relative w-full max-w-2/3 flex flex-col"
             >
               <div className="text-brown font-bold text-2xl flex justify-center my-10">
                 <h2>Your Water Intake So Far</h2>
               </div>
-              <div className="text-center w-full">
-
+              <div className="flex justify-center">
+                <Intake />
               </div>
             </div>
           </div>
