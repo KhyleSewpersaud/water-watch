@@ -28,7 +28,7 @@ function TimePicker() {
         onChange={handleHourChange}
         className="input input-bordered w-1/4 max-w-xs text-lightblue font-bold text-7xl text-end border-0 h-fit bg-transparent"
       />
-      <label className="font-semibold text-7xl mb-3">:</label>
+      <label className="font-semibold text-7xl mb-3 text-lightblue">:</label>
       
       <input
         type="number"
