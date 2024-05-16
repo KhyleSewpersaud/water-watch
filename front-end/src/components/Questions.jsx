@@ -1,5 +1,5 @@
 import "../App.jsx";
-import { forwardRef, useState, useEffect } from "react";
+import { forwardRef, useState } from "react";
 import TimePicker from "./TimePicker.jsx";
 import Intake from "./Intake.jsx";
 
@@ -25,23 +25,21 @@ const Questions = forwardRef((props, ref) => {
   };
 
   const [weight, setWeight] = useState(0);
-
   const [minutes, setMinutes] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(1);
 
-  const calculateProgress = () => {
+  window.addEventListener("hashchange", () => {
     const url = window.location.href;
     const slideNum = parseInt(url.slice(-1));
-    return ((slideNum - 1) / 4) * 100;
-  }
-
-
+    setSlideIndex(((slideNum - 1) / 3) * 100);
+  });
 
   return (
     <>
       <div className="flex justify-center my-8" ref={ref}>
         <progress
           className="progress progress-success w-56"
-          value={calculateProgress()}
+          value={slideIndex}
           max="100"
         ></progress>
       </div>
