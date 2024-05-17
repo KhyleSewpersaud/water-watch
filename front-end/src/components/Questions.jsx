@@ -4,6 +4,7 @@ import TimePicker from "./TimePicker.jsx";
 import Intake from "./Intake.jsx";
 
 const Questions = forwardRef((props, ref) => {
+  // ########## Slider Buttons ########## //
   const prev = () => {
     const url = window.location.href;
     const newLastInt = (parseInt(url.slice(-1)) - 1).toString();
@@ -23,9 +24,9 @@ const Questions = forwardRef((props, ref) => {
     const newUrl = url.substring(0, url.length - 1) + newLastInt;
     window.location.href = newUrl;
   };
+  // ########## Slider Buttons ########## //
 
-  const [weight, setWeight] = useState(0);
-  const [minutes, setMinutes] = useState(0);
+  // ########## Progress Bar ########## //
   const [slideIndex, setSlideIndex] = useState(1);
 
   window.addEventListener("hashchange", () => {
@@ -33,6 +34,43 @@ const Questions = forwardRef((props, ref) => {
     const slideNum = parseInt(url.slice(-1));
     setSlideIndex(((slideNum - 1) / 3) * 100);
   });
+  // ########## Progress Bar ########## //
+
+  // ########## Inputs on Slider ########## //
+  const [weight, setWeight] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  // ########## Inputs on Slider ########## //
+
+  // ########## TimePicker ########## //
+  const [hour, setHour] = useState("9");
+  const [minute, setMinute] = useState("30");
+  const [period, setPeriod] = useState("AM");
+
+  const handleHourChange = (e) => {
+    setHour(e.target.value);
+  };
+
+  const handleMinuteChange = (e) => {
+    setMinute(e.target.value);
+  };
+
+  const handlePeriodChange = (e) => {
+    setPeriod(e.target.value);
+  };
+  // ########## TimePicker ########## //
+
+
+
+  // ########## Intake ########## //
+  const [directInput, setDirectInput] = useState(0)
+  const [bottles, setBottles] = useState(Array(18).fill(0)); 
+
+  const handleBottleChange = (index, quantity) => {
+    const newBottles = [...bottles];
+    newBottles[index] = quantity;
+    setBottles(newBottles);
+  };
+  // ########## Intake ########## //
 
   return (
     <>
@@ -61,7 +99,14 @@ const Questions = forwardRef((props, ref) => {
                 </div>
 
                 <div className="flex justify-center">
-                  <TimePicker className="" />
+                  <TimePicker
+                    minute={minute}
+                    minuteChange={handleMinuteChange}
+                    hour={hour}
+                    hourChange={handleHourChange}
+                    period={period}
+                    periodChange={handlePeriodChange}
+                  />
                 </div>
               </div>
             </div>
@@ -86,7 +131,7 @@ const Questions = forwardRef((props, ref) => {
                       className="m-8 w-1/2 bg-lightblue rounded-md text-4xl text-center"
                       value={weight}
                       onChange={(e) => setWeight(e.target.value)}
-                    ></input>
+                    />
                   </div>
                 </div>
               </div>
@@ -120,7 +165,7 @@ const Questions = forwardRef((props, ref) => {
                       className="m-8 w-1/2 bg-lightblue rounded-md text-4xl text-center"
                       value={minutes}
                       onChange={(e) => setMinutes(e.target.value)}
-                    ></input>
+                    />
                   </div>
                 </div>
               </div>
@@ -136,7 +181,7 @@ const Questions = forwardRef((props, ref) => {
               </div>
               <div className="flex justify-center mx-4 mb-8">
                 <p className="text-center text-gray-600 text-lg">
-                  Often, we don't precisely measure the water we consume daily,
+                  Often, we don&apos;t precisely measure the water we consume daily,
                   relying instead on our familiar cups and bottles. Select
                   containers below that closely match the size and shape of your
                   own to estimate your water intake. Hover over the pictures for
@@ -147,10 +192,14 @@ const Questions = forwardRef((props, ref) => {
                 </p>
               </div>
               <div className="flex justify-center mb-5">
-                <input className="bg-transparent border-2 border-brown rounded text-center p-3 text-xl font-semibold text-lightblue"></input>
+                <input
+                  className="bg-transparent border-2 border-brown rounded text-center p-3 text-xl font-semibold text-lightblue"
+                  value={directInput}
+                  onChange={(e) => setDirectInput(e.target.value)}
+                />
               </div>
               <div className="flex justify-center">
-                <Intake />
+                <Intake bottles={bottles} handleBottleChange={handleBottleChange}/>
               </div>
             </div>
           </div>

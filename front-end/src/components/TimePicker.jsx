@@ -1,21 +1,14 @@
-import { useState } from "react";
+import PropTypes from 'prop-types';
 
-function TimePicker() {
-  const [hour, setHour] = useState("9");
-  const [minute, setMinute] = useState("30");
-  const [period, setPeriod] = useState("AM");
-
-  const handleHourChange = (e) => {
-    setHour(e.target.value);
-  };
-
-  const handleMinuteChange = (e) => {
-    setMinute(e.target.value);
-  };
-
-  const handlePeriodChange = (e) => {
-    setPeriod(e.target.value);
-  };
+function TimePicker(props) {
+  const {
+    minute,
+    minuteChange,
+    hour,
+    hourChange,
+    period,
+    periodChange
+  } = props;
 
   return (
     <div className="flex justify-center items-center">
@@ -25,7 +18,7 @@ function TimePicker() {
         min="1"
         max="12"
         value={hour}
-        onChange={handleHourChange}
+        onChange={hourChange}
         className="input input-bordered w-1/6 text-lightblue font-bold text-7xl text-end border-0 h-fit bg-transparent"
       />
       <label className="font-semibold text-7xl mb-3 text-lightblue">:</label>
@@ -36,14 +29,14 @@ function TimePicker() {
         min="0"
         max="59"
         value={minute}
-        onChange={handleMinuteChange}
+        onChange={minuteChange}
         className="input input-bordered w-1/6 text-lightblue font-bold text-7xl text-start border-0 h-fit bg-transparent"
       />
 
       <select
         id="period"
         value={period}
-        onChange={handlePeriodChange}
+        onChange={periodChange}
         className="input input-bordered text-lightblue font-bold text-7xl text-start border-0 h-fit bg-transparent"
       >
         <option value="AM">AM</option>
@@ -51,6 +44,15 @@ function TimePicker() {
       </select>
     </div>
   );
+}
+
+TimePicker.propTypes = {
+  minute: PropTypes.string.isRequired,
+  hour: PropTypes.string.isRequired,
+  period: PropTypes.string.isRequired,
+  minuteChange: PropTypes.func.isRequired,
+  hourChange: PropTypes.func.isRequired,
+  periodChange: PropTypes.func.isRequired
 }
 
 export default TimePicker;

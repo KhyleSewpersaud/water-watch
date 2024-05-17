@@ -1,21 +1,20 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 
-function Bottle(props) {
-  const [quantity, setQuantity] = useState(0);
-
+function Bottle({ index, image, quantity, handleBottleChange, className }) {
   const increase = () => {
-    setQuantity(quantity + 1);
+    handleBottleChange(index, quantity + 1);
   };
+
   const decrease = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
+    handleBottleChange(index, Math.max(0, quantity - 1));
+  };
+
+  const handleInputChange = (e) => {
+    const newQuantity = parseInt(e.target.value);
+    if (!isNaN(newQuantity)) {
+      handleBottleChange(index, newQuantity);
     }
   };
-  const handleInputChange = (e) => {
-    setQuantity(parseInt(e.target.value) || 0); // Parse the input value to an integer or default to 0
-  };
-
   return (
     <>
       <div className="flex flex-col justify-center mx-10 shrink-0 w-fit">
@@ -23,17 +22,14 @@ function Bottle(props) {
           <button onClick={decrease} className="text-2xl font-semibold px-1">
             -
           </button>
-          <img
-            src={props.image}
-            alt="Bottle"
-            className={props.className}
-          />
+          <img src={image} alt="Bottle" className={className} />
           <button onClick={increase} className="text-xl font-semibold px-1">
             +
           </button>
         </div>
         <div className="flex justify-center">
           <input
+            type="number"
             value={quantity}
             onChange={handleInputChange}
             className="w-1/2 text-center bg-transparent"
@@ -45,7 +41,10 @@ function Bottle(props) {
 }
 
 Bottle.propTypes = {
+  index: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+  handleBottleChange: PropTypes.func.isRequired,
   className: PropTypes.string,
 };
 
