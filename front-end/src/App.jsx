@@ -1,7 +1,6 @@
 import "./App.css";
 import { useRef, useEffect } from "react";
 import Questions from "./components/Questions.jsx";
-import Results from "./components/Results.jsx";
 import nalgene from "./assets/nalgene.png";
 import regularmug from "./assets/regularmug.png";
 import purelife from "./assets/purelife.png";
@@ -79,7 +78,6 @@ function App() {
         </div>
       </div>
       <Questions ref={scrollToQuestionRef} />
-      <Results />
     </>
   );
 }

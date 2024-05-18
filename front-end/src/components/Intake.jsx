@@ -51,7 +51,7 @@ function Intake({bottles, handleBottleChange}) {
         <div className="mb-12">
           <div className="flex justify-center">
             <h2 className="text-lightblue text-2xl font-semibold mb-3">
-              Bottles
+              Reusable Bottles
             </h2>
           </div>
           <div
@@ -75,7 +75,7 @@ function Intake({bottles, handleBottleChange}) {
 
         <div className="mb-12">
           <div className="flex justify-center">
-            <h2 className="text-lightblue text-2xl font-semibold mb-3">Cups</h2>
+            <h2 className="text-lightblue text-2xl font-semibold mb-3">Plastic Water Bottles and Cups</h2>
           </div>
           <div
             className="overflow-auto border-2 border-brown rounded p-3"

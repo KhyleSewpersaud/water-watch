@@ -2,15 +2,15 @@ import PropTypes from "prop-types";
 
 function Bottle({ index, image, quantity, handleBottleChange, className }) {
   const increase = () => {
-    handleBottleChange(index, quantity + 1);
+    handleBottleChange(index, quantity + 0.25);
   };
 
   const decrease = () => {
-    handleBottleChange(index, Math.max(0, quantity - 1));
+    handleBottleChange(index, Math.max(0, quantity - 0.25));
   };
 
   const handleInputChange = (e) => {
-    const newQuantity = parseInt(e.target.value);
+    const newQuantity = parseFloat(e.target.value);
     if (!isNaN(newQuantity)) {
       handleBottleChange(index, newQuantity);
     }
@@ -27,9 +27,10 @@ function Bottle({ index, image, quantity, handleBottleChange, className }) {
             +
           </button>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center ml-3">
           <input
             type="number"
+            step="0.01"
             value={quantity}
             onChange={handleInputChange}
             className="w-1/2 text-center bg-transparent"

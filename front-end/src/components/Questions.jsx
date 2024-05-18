@@ -2,6 +2,7 @@ import "../App.jsx";
 import { forwardRef, useState } from "react";
 import TimePicker from "./TimePicker.jsx";
 import Intake from "./Intake.jsx";
+import Results from "./Results.jsx";
 
 const Questions = forwardRef((props, ref) => {
   // ########## Slider Buttons ########## //
@@ -38,7 +39,27 @@ const Questions = forwardRef((props, ref) => {
 
   // ########## Inputs on Slider ########## //
   const [weight, setWeight] = useState(0);
-  const [minutes, setMinutes] = useState(0);
+  const [exerciseMinutes, setExerciseMinutes] = useState(0);
+  const [gender, setGender] = useState("male");
+  const [climate, setClimate] = useState("neutral");
+  const [weightUnit, setWeightUnit] = useState("lbs");
+  const [directInputUnit, setDirectInputUnit] = useState("ml")
+
+  const handleDirectInputUnit = (e) => {
+    setDirectInputUnit(e.target.value);
+  }
+
+  const handleWeightUnit = (e) => {
+    setWeightUnit(e.target.value);
+  };
+
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  };
+
+  const handleClimateChange = (e) => {
+    setClimate(e.target.value);
+  };
   // ########## Inputs on Slider ########## //
 
   // ########## TimePicker ########## //
@@ -59,11 +80,9 @@ const Questions = forwardRef((props, ref) => {
   };
   // ########## TimePicker ########## //
 
-
-
   // ########## Intake ########## //
-  const [directInput, setDirectInput] = useState(0)
-  const [bottles, setBottles] = useState(Array(18).fill(0)); 
+  const [directInput, setDirectInput] = useState(0);
+  const [bottles, setBottles] = useState(Array(18).fill(0));
 
   const handleBottleChange = (index, quantity) => {
     const newBottles = [...bottles];
@@ -117,8 +136,12 @@ const Questions = forwardRef((props, ref) => {
               <div className="flex justify-around font-bold p-32">
                 <div className="text-center w-full">
                   <h2 className="text-brown text-7xl">Gender</h2>
-                  <div className="flex justify-center m-8">
-                    <select className="w-1/2 bg-lightblue rounded-md text-3xl text-center">
+                  <div className="flex justify-center m-8 font-semibold">
+                    <select
+                      className="w-1/2 bg-lightblue rounded-md text-3xl text-center"
+                      value={gender}
+                      onChange={handleGenderChange}
+                    >
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
@@ -126,12 +149,24 @@ const Questions = forwardRef((props, ref) => {
                 </div>
                 <div className="text-center w-full">
                   <h2 className="text-brown text-7xl">Weight</h2>
-                  <div className="flex justify-center">
-                    <input
-                      className="m-8 w-1/2 bg-lightblue rounded-md text-4xl text-center"
-                      value={weight}
-                      onChange={(e) => setWeight(e.target.value)}
-                    />
+                  <div className="font-semibold">
+                    <div className="flex justify-center">
+                      <input
+                        className="my-8 mx-2 w-1/2 bg-lightblue rounded-md text-4xl text-center"
+                        value={weight}
+                        onChange={(e) => setWeight(e.target.value)}
+                      />
+                      <div className="flex justify-center">
+                        <select
+                          className="my-8 bg-lightblue rounded-md text-2xl text-center"
+                          value={weightUnit}
+                          onChange={handleWeightUnit}
+                        >
+                          <option value="lbs">lbs</option>
+                          <option value="kg">kg</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -147,7 +182,11 @@ const Questions = forwardRef((props, ref) => {
                       Outside Climate
                     </h2>
                     <div className="flex justify-center m-8">
-                      <select className="w-1/2 bg-lightblue rounded-md text-3xl text-center">
+                      <select
+                        className="w-1/2 bg-lightblue rounded-md text-3xl text-center"
+                        value={climate}
+                        onChange={handleClimateChange}
+                      >
                         <option value="cold">Cold</option>
                         <option value="neutral">Neutral</option>
                         <option value="warm">Warm</option>
@@ -163,8 +202,8 @@ const Questions = forwardRef((props, ref) => {
                   <div className="flex justify-center">
                     <input
                       className="m-8 w-1/2 bg-lightblue rounded-md text-4xl text-center"
-                      value={minutes}
-                      onChange={(e) => setMinutes(e.target.value)}
+                      value={exerciseMinutes}
+                      onChange={(e) => setExerciseMinutes(e.target.value)}
                     />
                   </div>
                 </div>
@@ -181,14 +220,14 @@ const Questions = forwardRef((props, ref) => {
               </div>
               <div className="flex justify-center mx-4 mb-8">
                 <p className="text-center text-gray-600 text-lg">
-                  Often, we don&apos;t precisely measure the water we consume daily,
-                  relying instead on our familiar cups and bottles. Select
-                  containers below that closely match the size and shape of your
-                  own to estimate your water intake. Hover over the pictures for
-                  more details. If you happen to know the exact amount you drank
-                  today, feel free to enter it below. You can also combine
-                  container estimates with exact amounts for a more accurate
-                  record.
+                  Often, we don&apos;t precisely measure the water we consume
+                  daily, relying instead on our familiar cups and bottles.
+                  Select containers below that closely match the size and shape
+                  of your own to estimate your water intake. Hover over the
+                  pictures for more details. If you happen to know the exact
+                  amount you drank today, feel free to enter it below. You can
+                  also combine container estimates with exact amounts for a more
+                  accurate record.
                 </p>
               </div>
               <div className="flex justify-center mb-5">
@@ -197,9 +236,18 @@ const Questions = forwardRef((props, ref) => {
                   value={directInput}
                   onChange={(e) => setDirectInput(e.target.value)}
                 />
+                <select className="bg-transparent border-2 border-brown rounded text-center p-3 text-xl font-semibold text-lightblue"
+                value={directInputUnit}
+                onChange={handleDirectInputUnit}>
+                  <option value="ml">ml</option>
+                  <option value="oz">oz</option>
+                </select>
               </div>
               <div className="flex justify-center">
-                <Intake bottles={bottles} handleBottleChange={handleBottleChange}/>
+                <Intake
+                  bottles={bottles}
+                  handleBottleChange={handleBottleChange}
+                />
               </div>
             </div>
           </div>
@@ -210,6 +258,19 @@ const Questions = forwardRef((props, ref) => {
           </div>
         </div>
       </div>
+      <Results
+        hours={hour}
+        minute={minute}
+        period={period}
+        gender={gender}
+        weight={weight}
+        climate={climate}
+        exerciseMinutes={exerciseMinutes}
+        bottles={bottles}
+        weightUnit={weightUnit}
+        directInputUnit={directInputUnit}
+        directInput={directInput}
+      />
     </>
   );
 });
