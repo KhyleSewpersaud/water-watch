@@ -163,6 +163,11 @@ function Results({
         }))
         .filter((bottle) => bottle.qty > 0);
 
+      if (bottlesUsed.length > 3) {
+        shuffle(bottlesUsed);
+        bottlesUsed = bottlesUsed.slice(0, 3);
+      }
+
       const halfBottles = bottlesUsed.map((bottle) => ({
         index: bottle.index,
         capacity: Math.round(bottle.capacity / 2),
@@ -175,7 +180,7 @@ function Results({
 
       // eslint-disable-next-line no-inner-declarations
       function dfs(i, cur, total) {
-        if (total >= remainingWater - 200 && total <= remainingWater + 500) {
+        if (total >= remainingWater - 200 && total <= remainingWater + 200) {
           res.push(cur.slice());
           return;
         }
@@ -192,8 +197,6 @@ function Results({
       shuffle(res);
 
       const randomResults = res.slice(0, 3);
-
-      console.log(randomResults);
 
       const finalResults = [];
 
