@@ -141,6 +141,7 @@ const Questions = forwardRef((props, ref) => {
                       className="w-1/2 bg-lightblue rounded-md text-3xl text-center"
                       value={gender}
                       onChange={handleGenderChange}
+                      aria-label="gender"
                     >
                       <option value="male">Male</option>
                       <option value="female">Female</option>
@@ -155,6 +156,7 @@ const Questions = forwardRef((props, ref) => {
                         className="my-8 mx-2 w-1/2 bg-lightblue rounded-md text-4xl text-center"
                         value={weight}
                         onChange={(e) => setWeight(e.target.value)}
+                        aria-label="weight"
                       />
                       <div className="flex justify-center">
                         <select
@@ -186,6 +188,7 @@ const Questions = forwardRef((props, ref) => {
                         className="w-1/2 bg-lightblue rounded-md text-3xl text-center"
                         value={climate}
                         onChange={handleClimateChange}
+                        aria-label="climate"
                       >
                         <option value="cold">Cold</option>
                         <option value="neutral">Neutral</option>
@@ -204,6 +207,7 @@ const Questions = forwardRef((props, ref) => {
                       className="m-8 w-1/2 bg-lightblue rounded-md text-4xl text-center"
                       value={exerciseMinutes}
                       onChange={(e) => setExerciseMinutes(e.target.value)}
+                      aria-label="exercise"
                     />
                   </div>
                 </div>

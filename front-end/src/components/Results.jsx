@@ -217,7 +217,7 @@ function Results({
       return (
         <div>
           {finalResults.map((solution, solutionIndex) => (
-            <div key={solutionIndex} className="solution flex">
+            <div key={solutionIndex} className="solution flex"  >
               {Object.entries(solution).map(([index, quantity]) => (
                 <BottleOutput
                   key={index}
@@ -267,7 +267,7 @@ function Results({
         </div>
         <div className="flex justify-center mt-10">
           <div className="flex justify-center">
-            <div className="flex ">{totalWaterLeft()}</div>
+            <div className="flex">{totalWaterLeft()}</div>
             <div>temp</div>
           </div>
           <div></div>
