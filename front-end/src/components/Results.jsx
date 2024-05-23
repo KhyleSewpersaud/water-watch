@@ -75,6 +75,8 @@ function Results({
   directInputUnit,
   directInput,
 }) {
+
+  console.log(hours, minute, period)
   function dailyIntake() {
     var multiplier;
     var sum = 0;
@@ -196,7 +198,7 @@ function Results({
 
       shuffle(res);
 
-      const randomResults = res.slice(0, 3);
+      const randomResults = res.slice(0, 1);
 
       const finalResults = [];
 
@@ -211,12 +213,13 @@ function Results({
               (tempMap[randomResults[i][j].index] || 0) + 1;
           }
         }
-        finalResults.push(tempMap);
+        finalResults.push(tempMap)
       }
 
       return (
-        <div>
-          {finalResults.map((solution, solutionIndex) => (
+        <div className="flex">
+          <div className="flex flex-col">
+            {finalResults.map((solution, solutionIndex) => (
             <div key={solutionIndex} className="solution flex"  >
               {Object.entries(solution).map(([index, quantity]) => (
                 <BottleOutput
@@ -228,6 +231,9 @@ function Results({
               ))}
             </div>
           ))}
+          </div>
+          
+          hello
         </div>
       );
     }
@@ -268,7 +274,6 @@ function Results({
         <div className="flex justify-center mt-10">
           <div className="flex justify-center">
             <div className="flex">{totalWaterLeft()}</div>
-            <div>temp</div>
           </div>
           <div></div>
           <div></div>
@@ -285,7 +290,7 @@ Results.propTypes = {
   gender: PropTypes.string.isRequired,
   weight: PropTypes.string.isRequired,
   climate: PropTypes.string.isRequired,
-  exerciseMinutes: PropTypes.number.isRequired,
+  exerciseMinutes: PropTypes.string.isRequired,
   bottles: PropTypes.array.isRequired,
   weightUnit: PropTypes.string.isRequired,
   directInputUnit: PropTypes.string.isRequired,

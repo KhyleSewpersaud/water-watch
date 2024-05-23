@@ -60,6 +60,16 @@ const Questions = forwardRef((props, ref) => {
   const handleClimateChange = (e) => {
     setClimate(e.target.value);
   };
+
+  const handleExerciseChange = (e) => {
+    const value = e.target.value;
+    if (!isNaN(value) && value !== '') {  
+      const maxMinutes = Math.min(Number(value), 1440);
+      setExerciseMinutes(maxMinutes);
+    } else {
+      setExerciseMinutes(''); 
+    }
+  };
   // ########## Inputs on Slider ########## //
 
   // ########## TimePicker ########## //
@@ -155,7 +165,10 @@ const Questions = forwardRef((props, ref) => {
                       <input
                         className="my-8 mx-2 w-1/2 bg-lightblue rounded-md text-4xl text-center"
                         value={weight}
-                        onChange={(e) => setWeight(e.target.value)}
+                        onChange={(e) => {
+                          const newValue = Math.min(e.target.value, 1500);
+                          setWeight(newValue);
+                        }}
                         aria-label="weight"
                       />
                       <div className="flex justify-center">
@@ -206,7 +219,7 @@ const Questions = forwardRef((props, ref) => {
                     <input
                       className="m-8 w-1/2 bg-lightblue rounded-md text-4xl text-center"
                       value={exerciseMinutes}
-                      onChange={(e) => setExerciseMinutes(e.target.value)}
+                      onChange={handleExerciseChange}
                       aria-label="exercise"
                     />
                   </div>
