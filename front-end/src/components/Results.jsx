@@ -183,7 +183,7 @@ function Results({
         <div className="flex justify-center w-full">
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
-              Over the Course of the day
+              Over the Course of the Day You Need to Drink
             </h3>
             <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
               <BottleOutput
@@ -196,7 +196,7 @@ function Results({
           </div>
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
-              Every Hour
+              Every Hour Until You Sleep You Need to Drink
             </h3>
             <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
               <BottleOutput
@@ -281,7 +281,7 @@ function Results({
         <div className="flex justify-center w-full">
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/3">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
-              Over the Course of the day
+              Over the Course of the Day You Need to Drink
             </h3>
             <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
               {Object.entries(finalResult).map(([index, quantity]) => (
@@ -296,7 +296,7 @@ function Results({
           </div>
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/3">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
-              Every Hour
+              Every Hour Until You Sleep You Need to Drink
             </h3>
             <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
               <BottleOutput
@@ -309,6 +309,53 @@ function Results({
           </div>
         </div>
       );
+    }
+  }
+
+  function addtionalWaterForTemp() {
+    if (climate === "warm" || climate === "hot") {
+      let bottlesUsed = bottles
+        .map((qty, index) => ({
+          index,
+          capacity: bottleStorage[index],
+          qty,
+          half: false,
+        }))
+        .filter((bottle) => bottle.qty > 0);
+
+      if (bottlesUsed.length === 0) {
+        return
+      }
+
+      const randomBottle =
+        bottlesUsed[Math.floor(Math.random() * bottlesUsed.length)];
+
+      const fractionOfOz = climate === "warm" ? 250 / randomBottle.capacity : 500 / randomBottle.capacity
+
+      return (
+        <div className="flex justify-center items-center bg-lightbrown p-5 rounded-xl mx-2">
+          <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+            Consider Drinking an Extra
+          </h3>
+          <div className=" p-3  flex justify-center">
+            <BottleOutput
+              key={randomBottle.index}
+              image={allBottleData[randomBottle.index].image}
+              quantity={fractionOfOz.toFixed(2)}
+              className={allBottleData[randomBottle.index].style}
+            />
+          </div>
+          <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+            Every 20 Minutes in the Heat
+          </h3>
+        </div>
+      );
+    }
+  }
+
+  function addtionalWaterForActivity() {
+    if (exerciseMinutes > 0) {
+      
     }
   }
 
@@ -335,7 +382,7 @@ function Results({
         </div>
         <div className="flex justify-center">
           <h1 className="text-center font-bold text-5xl text-brown">
-            You have{"\u00A0"}
+            You Have{"\u00A0"}
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
             {Math.round((remaining() / 1000) * 10) / 10}L
@@ -344,9 +391,11 @@ function Results({
             {"\u00A0"}Left
           </h1>
         </div>
-        <div className="flex justify-center mt-10">
+        <div className="flex flex-col justify-center mt-10">
           <div className="flex justify-center w-full">{totalWaterLeft()}</div>
-          <div></div>
+          <div className="flex justify-center w-full my-5">
+            {addtionalWaterForTemp()}
+          </div>
           <div></div>
         </div>
       </div>
