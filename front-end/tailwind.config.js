@@ -14,7 +14,8 @@ export default {
         'terq': '#3ACAFA',
         'darkblue': '#074173',
         'brown': '#70675A',
-        'grey': '#9F9F9F'
+        'grey': '#9F9F9F',
+        'lightbrown': '#CABFAE'
       },
       fontFamily: {
         display: ["Rubik", "sans-serif"]

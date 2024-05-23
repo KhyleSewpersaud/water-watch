@@ -180,22 +180,32 @@ function Results({
       const neededBottles =
         Math.round(remaining() / bottleCapacity / 0.25) * 0.25;
       return (
-        <div className="flex">
-          <div className="flex">
-            <BottleOutput
-              key={bottlesUsed[0]}
-              image={allBottleData[bottlesUsed[0]].image}
-              quantity={neededBottles}
-              className={allBottleData[bottlesUsed[0]].style}
-            />
+        <div className="flex justify-center w-full">
+          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
+            <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+              Over the Course of the day
+            </h3>
+            <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+              <BottleOutput
+                key={bottlesUsed[0]}
+                image={allBottleData[bottlesUsed[0]].image}
+                quantity={neededBottles}
+                className={allBottleData[bottlesUsed[0]].style}
+              />
+            </div>
           </div>
-          <div className="flex">
-            <BottleOutput
-              key={bottlesUsed[0]}
-              image={allBottleData[bottlesUsed[0]].image}
-              quantity={(neededBottles / timeUntilSleep()).toFixed(2)}
-              className={allBottleData[bottlesUsed[0]].style}
-            />
+          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
+            <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+              Every Hour
+            </h3>
+            <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+              <BottleOutput
+                key={bottlesUsed[0]}
+                image={allBottleData[bottlesUsed[0]].image}
+                quantity={(neededBottles / timeUntilSleep()).toFixed(2)}
+                className={allBottleData[bottlesUsed[0]].style}
+              />
+            </div>
           </div>
         </div>
       );
@@ -217,10 +227,13 @@ function Results({
         bottlesUsed = bottlesUsed.slice(0, 3);
       }
 
-      const randomHourlyBottleIndex = Math.floor(Math.random() * bottlesUsed.length);
+      const randomHourlyBottleIndex = Math.floor(
+        Math.random() * bottlesUsed.length
+      );
       const randomHourlyBottle = bottlesUsed[randomHourlyBottleIndex];
-      const toFillOneBottle = Math.round(remainingWater / randomHourlyBottle.capacity / 0.25) * 0.25
-    
+      const toFillOneBottle =
+        Math.round(remainingWater / randomHourlyBottle.capacity / 0.25) * 0.25;
+
       // Calculate the recommended intake per hour from the selected bottle
       console.log(toFillOneBottle);
 
@@ -265,24 +278,34 @@ function Results({
       }
 
       return (
-        <div className="flex">
-          <div className="solution flex">
-            {Object.entries(finalResult).map(([index, quantity]) => (
-              <BottleOutput
-                key={index}
-                image={allBottleData[index].image}
-                quantity={quantity}
-                className={allBottleData[index].style}
-              />
-            ))}
+        <div className="flex justify-center w-full">
+          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/3">
+            <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+              Over the Course of the day
+            </h3>
+            <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+              {Object.entries(finalResult).map(([index, quantity]) => (
+                <BottleOutput
+                  key={index}
+                  image={allBottleData[index].image}
+                  quantity={quantity}
+                  className={allBottleData[index].style}
+                />
+              ))}
+            </div>
           </div>
-          <div className="flex">
-            <BottleOutput
-              key={randomHourlyBottle.index}
-              image={allBottleData[randomHourlyBottle.index].image}
-              quantity={(toFillOneBottle / timeUntilSleep()).toFixed(2)}
-              className={allBottleData[randomHourlyBottle.index].style}
-            />
+          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/3">
+            <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+              Every Hour
+            </h3>
+            <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+              <BottleOutput
+                key={randomHourlyBottle.index}
+                image={allBottleData[randomHourlyBottle.index].image}
+                quantity={(toFillOneBottle / timeUntilSleep()).toFixed(2)}
+                className={allBottleData[randomHourlyBottle.index].style}
+              />
+            </div>
           </div>
         </div>
       );
@@ -322,9 +345,7 @@ function Results({
           </h1>
         </div>
         <div className="flex justify-center mt-10">
-          <div className="flex justify-center">
-            <div className="flex">{totalWaterLeft()}</div>
-          </div>
+          <div className="flex justify-center w-full">{totalWaterLeft()}</div>
           <div></div>
           <div></div>
         </div>
