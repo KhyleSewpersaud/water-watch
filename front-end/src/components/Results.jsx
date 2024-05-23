@@ -75,8 +75,43 @@ function Results({
   directInputUnit,
   directInput,
 }) {
+  function timeUntilSleep() {
+    const now = new Date();
 
-  console.log(hours, minute, period)
+    let wakeHour = parseInt(hours);
+    const wakeMinute = parseInt(minute);
+    const isPM = period.toLowerCase() === "pm";
+
+    // Convert to 24-hour format
+    if (isPM && wakeHour !== 12) {
+      wakeHour += 12;
+    } else if (!isPM && wakeHour === 12) {
+      wakeHour = 0;
+    }
+
+    const wakeTime = new Date();
+    wakeTime.setHours(wakeHour);
+    wakeTime.setMinutes(wakeMinute);
+    wakeTime.setSeconds(0);
+    wakeTime.setMilliseconds(0);
+
+    // Calculate sleep time (16 hours after wake time)
+    const sleepTime = new Date(wakeTime);
+    sleepTime.setHours(sleepTime.getHours() + 16);
+
+    let timeDiff = sleepTime - now;
+    if (timeDiff < 0) {
+      // If the sleep time is earlier in the day than the current time,
+      // it means the user intends to sleep the next day.
+      timeDiff += 24 * 60 * 60 * 1000; // add 24 hours
+    }
+
+    const hoursUntilSleep = timeDiff / (1000 * 60 * 60); // convert milliseconds to hours
+
+    return hoursUntilSleep;
+  }
+
+  timeUntilSleep();
   function dailyIntake() {
     var multiplier;
     var sum = 0;
@@ -145,12 +180,24 @@ function Results({
       const neededBottles =
         Math.round(remaining() / bottleCapacity / 0.25) * 0.25;
       return (
-        <BottleOutput
-          key={bottlesUsed[0]}
-          image={allBottleData[bottlesUsed[0]].image}
-          quantity={neededBottles}
-          className={allBottleData[bottlesUsed[0]].style}
-        />
+        <div className="flex">
+          <div className="flex">
+            <BottleOutput
+              key={bottlesUsed[0]}
+              image={allBottleData[bottlesUsed[0]].image}
+              quantity={neededBottles}
+              className={allBottleData[bottlesUsed[0]].style}
+            />
+          </div>
+          <div className="flex">
+            <BottleOutput
+              key={bottlesUsed[0]}
+              image={allBottleData[bottlesUsed[0]].image}
+              quantity={(neededBottles / timeUntilSleep()).toFixed(2)}
+              className={allBottleData[bottlesUsed[0]].style}
+            />
+          </div>
+        </div>
       );
     }
 
@@ -169,6 +216,13 @@ function Results({
         shuffle(bottlesUsed);
         bottlesUsed = bottlesUsed.slice(0, 3);
       }
+
+      const randomHourlyBottleIndex = Math.floor(Math.random() * bottlesUsed.length);
+      const randomHourlyBottle = bottlesUsed[randomHourlyBottleIndex];
+      const toFillOneBottle = Math.round(remainingWater / randomHourlyBottle.capacity / 0.25) * 0.25
+    
+      // Calculate the recommended intake per hour from the selected bottle
+      console.log(toFillOneBottle);
 
       const halfBottles = bottlesUsed.map((bottle) => ({
         index: bottle.index,
@@ -196,44 +250,40 @@ function Results({
       }
       dfs(0, [], 0);
 
-      shuffle(res);
+      const randomResult = res[Math.floor(Math.random() * res.length)];
 
-      const randomResults = res.slice(0, 1);
+      const finalResult = {};
 
-      const finalResults = [];
-
-      for (let i = 0; i < randomResults.length; i++) {
-        var tempMap = {};
-        for (let j = 0; j < randomResults[i].length; j++) {
-          if (randomResults[i][j].half) {
-            tempMap[randomResults[i][j].index] =
-              (tempMap[randomResults[i][j].index] || 0) + 0.5;
-          } else {
-            tempMap[randomResults[i][j].index] =
-              (tempMap[randomResults[i][j].index] || 0) + 1;
-          }
+      for (let i = 0; i < randomResult.length; i++) {
+        if (randomResult[i].half) {
+          finalResult[randomResult[i].index] =
+            (finalResult[randomResult[i].index] || 0) + 0.5;
+        } else {
+          finalResult[randomResult[i].index] =
+            (finalResult[randomResult[i].index] || 0) + 1;
         }
-        finalResults.push(tempMap)
       }
 
       return (
         <div className="flex">
-          <div className="flex flex-col">
-            {finalResults.map((solution, solutionIndex) => (
-            <div key={solutionIndex} className="solution flex"  >
-              {Object.entries(solution).map(([index, quantity]) => (
-                <BottleOutput
-                  key={index}
-                  image={allBottleData[index].image}
-                  quantity={quantity}
-                  className={allBottleData[index].style}
-                />
-              ))}
-            </div>
-          ))}
+          <div className="solution flex">
+            {Object.entries(finalResult).map(([index, quantity]) => (
+              <BottleOutput
+                key={index}
+                image={allBottleData[index].image}
+                quantity={quantity}
+                className={allBottleData[index].style}
+              />
+            ))}
           </div>
-          
-          hello
+          <div className="flex">
+            <BottleOutput
+              key={randomHourlyBottle.index}
+              image={allBottleData[randomHourlyBottle.index].image}
+              quantity={(toFillOneBottle / timeUntilSleep()).toFixed(2)}
+              className={allBottleData[randomHourlyBottle.index].style}
+            />
+          </div>
         </div>
       );
     }
