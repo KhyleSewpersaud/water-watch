@@ -22,15 +22,15 @@ jobs:
           node-version: '21'
 
       - name: Install frontend dependencies
-        working-directory: ./frontend
+        working-directory: ./front-end
         run: npm install
 
       - name: Run frontend tests
-        working-directory: ./frontend
+        working-directory: ./front-end
         run: npm test
 
       - name: Build frontend
-        working-directory: ./frontend
+        working-directory: ./front-end
         run: npm run build
 
   build-and-test-backend:
@@ -41,11 +41,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js for backend
+      - name: Set up Node.js for back-end
         uses: actions/setup-node@v4
         with:
           node-version: '21'
 
       - name: Install backend dependencies
-        working-directory: ./backend
+        working-directory: ./back-end
         run: npm install
