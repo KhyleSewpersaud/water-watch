@@ -12,6 +12,10 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 5173
+FROM nginx:alpine
 
-CMD [ "npx", "serve", "-s", "-l", "5173", "./dist" ]
+COPY --from=0 /app/front-end/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD [ "nginx", "-g", "daemon off;" ]

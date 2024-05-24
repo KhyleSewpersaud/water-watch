@@ -3,9 +3,7 @@ services:
     build: ./front-end
     container_name: front-end_c
     ports:
-      - '5173:5173'
-    stdin_open: true
-    tty: true
+      - '80:80'
   back-end:
     build: ./back-end
     container_name: back-end_c
