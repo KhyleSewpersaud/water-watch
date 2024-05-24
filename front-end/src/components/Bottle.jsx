@@ -1,6 +1,13 @@
 import PropTypes from "prop-types";
 
-function Bottle({ index, image, quantity, handleBottleChange, className }) {
+function Bottle({
+  index,
+  image,
+  quantity,
+  handleBottleChange,
+  className,
+  info,
+}) {
   const increase = () => {
     handleBottleChange(index, quantity + 0.25);
   };
@@ -15,10 +22,11 @@ function Bottle({ index, image, quantity, handleBottleChange, className }) {
       handleBottleChange(index, newQuantity);
     }
   };
+
   return (
     <>
       <div className="flex flex-col justify-center mx-10 shrink-0 w-fit">
-        <div className="flex justify-center">
+        <div className="flex justify-center relative group">
           <button onClick={decrease} className="text-2xl font-semibold px-1">
             -
           </button>
@@ -26,6 +34,9 @@ function Bottle({ index, image, quantity, handleBottleChange, className }) {
           <button onClick={increase} className="text-xl font-semibold px-1">
             +
           </button>
+          <div className="absolute bottom-0 left-0 hidden group-hover:block bg-gray-700 text-white text-sm p-2 rounded">
+            {info}
+          </div>
         </div>
         <div className="flex justify-center ml-3">
           <input
@@ -47,6 +58,7 @@ Bottle.propTypes = {
   quantity: PropTypes.number.isRequired,
   handleBottleChange: PropTypes.func.isRequired,
   className: PropTypes.string,
+  info: PropTypes.string,
 };
 
 export default Bottle;
