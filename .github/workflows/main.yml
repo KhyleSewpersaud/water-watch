@@ -76,6 +76,6 @@ jobs:
             cd ${{ secrets.REPO_PATH }}
             git pull origin main
             cd front-end
-            npm install
-            npm run build
+            sudo npm install
+            sudo npm run build
             sudo systemctl restart nginx
