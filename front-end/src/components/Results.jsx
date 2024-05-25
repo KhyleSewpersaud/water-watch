@@ -234,9 +234,6 @@ function Results({
       const toFillOneBottle =
         Math.round(remainingWater / randomHourlyBottle.capacity / 0.25) * 0.25;
 
-      // Calculate the recommended intake per hour from the selected bottle
-      console.log(toFillOneBottle);
-
       const halfBottles = bottlesUsed.map((bottle) => ({
         index: bottle.index,
         capacity: Math.round(bottle.capacity / 2),
