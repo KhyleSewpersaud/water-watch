@@ -34,7 +34,7 @@ function Bottle({
           <button onClick={increase} className="text-xl font-semibold px-1">
             +
           </button>
-          <div className="absolute bottom-0 left-0 hidden group-hover:block bg-gray-700 text-white text-sm p-2 rounded">
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full mt-2 hidden group-hover:block bg-gray-700 text-white text-sm p-2 rounded z-20">
             {info}
           </div>
         </div>

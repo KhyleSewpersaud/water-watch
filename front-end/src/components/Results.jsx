@@ -170,7 +170,9 @@ function Results({
 
     if (remaining() <= 0) {
       return (
-        <p>You did it!</p>
+        <div className="bg-lightbeige rounded-xl p-3 flex justify-center">
+          <h3 className="text-2xl font-semibold">Congrats! You drank your daily required intake!</h3>
+        </div>
       )
     }
 
@@ -416,7 +418,7 @@ function Results({
             You Need To Drink{"\u00A0"}
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
-            {Math.round((dailyIntake() / 1000) * 10) / 10}L
+            {Math.max((Math.round((dailyIntake() / 1000) * 10) / 10), 0)}L
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
             {"\u00A0"}Daily
