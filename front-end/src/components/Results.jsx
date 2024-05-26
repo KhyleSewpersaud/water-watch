@@ -167,6 +167,13 @@ function Results({
   }
 
   function totalWaterLeft() {
+
+    if (remaining() <= 0) {
+      return (
+        <p>You did it!</p>
+      )
+    }
+
     let bottlesUsed = [];
 
     for (let i = 0; i < bottles.length; i++) {
@@ -420,7 +427,7 @@ function Results({
             You Have{"\u00A0"}
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
-            {Math.round((remaining() / 1000) * 10) / 10}L
+            {Math.max(Math.round(((remaining() / 1000) * 10) / 10), 0)}L
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
             {"\u00A0"}Left
@@ -445,10 +452,10 @@ Results.propTypes = {
   minute: PropTypes.string.isRequired,
   period: PropTypes.string.isRequired,
   gender: PropTypes.string.isRequired,
-  weight: PropTypes.string.isRequired,
+  weight: PropTypes.number.isRequired,
   climate: PropTypes.string.isRequired,
-  exerciseMinutes: PropTypes.string.isRequired,
-  bottles: PropTypes.array.isRequired,
+  exerciseMinutes: PropTypes.number.isRequired,
+  bottles: PropTypes.arrayOf(PropTypes.number).isRequired,
   weightUnit: PropTypes.string.isRequired,
   directInputUnit: PropTypes.string.isRequired,
   directInput: PropTypes.number.isRequired,

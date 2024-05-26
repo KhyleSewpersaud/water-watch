@@ -53,6 +53,16 @@ const Questions = forwardRef((props, ref) => {
     setWeightUnit(e.target.value);
   };
 
+  const handleWeightChange = (e) => {
+    const value = e.target.value;
+    if (!isNaN(value) && value !== "") {
+      const maxWeight = Math.min(Number(value), 1500);
+      setWeight(Number(maxWeight));
+    } else  {
+      setWeight(0);
+    }
+  };
+
   const handleGenderChange = (e) => {
     setGender(e.target.value);
   };
@@ -67,7 +77,7 @@ const Questions = forwardRef((props, ref) => {
       const maxMinutes = Math.min(Number(value), 1440);
       setExerciseMinutes(maxMinutes);
     } else {
-      setExerciseMinutes(''); 
+      setExerciseMinutes(0); 
     }
   };
   // ########## Inputs on Slider ########## //
@@ -165,10 +175,8 @@ const Questions = forwardRef((props, ref) => {
                       <input
                         className="my-8 mx-2 w-1/2 bg-lightblue rounded-md text-4xl text-center"
                         value={weight}
-                        onChange={(e) => {
-                          const newValue = Math.min(e.target.value, 1500);
-                          setWeight(newValue);
-                        }}
+                        onChange={handleWeightChange
+                        }
                         aria-label="weight"
                       />
                       <div className="flex justify-center">
