@@ -16,9 +16,8 @@ function App() {
   };
 
   useEffect(() => {
-    if (!window.location.hash) {
-      window.location.href = `${window.location.origin}/#slide1`;
-    }
+    window.location.href = `${window.location.origin}/#slide1`;
+
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
