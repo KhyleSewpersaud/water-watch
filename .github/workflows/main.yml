@@ -27,7 +27,7 @@ jobs:
 
       - name: Run frontend tests with increased memory
         working-directory: ./front-end
-        run: node --max-old-space-size=4096 node_modules/.bin/vitest run
+        run: node --max-old-space-size=8192 node_modules/.bin/vitest run
 
       - name: Build frontend
         working-directory: ./front-end
