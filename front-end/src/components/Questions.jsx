@@ -88,11 +88,27 @@ const Questions = forwardRef((props, ref) => {
   const [period, setPeriod] = useState("AM");
 
   const handleHourChange = (e) => {
-    setHour(e.target.value);
+    let value = e.target.value;
+    
+    value = value.slice(-2);
+    
+    // Ensure value is between 1 and 12
+    value = Math.min(Math.max(parseInt(value), 1), 12).toString();
+    
+    setHour(value);
+    
+    if (isNaN(value)) {
+      setHour("1"); // Set hour to 1 if the value is NaN
+    }
   };
 
   const handleMinuteChange = (e) => {
-    setMinute(e.target.value);
+    let value = e.target.value;
+    // Slice the last 2 digits entered
+    value = value.slice(-2);
+    // Ensure value is between 0 and 59
+    value = Math.min(Math.max(parseInt(value) || 0, 0), 59).toString();
+    setMinute(value.padStart(2, '0'));
   };
 
   const handlePeriodChange = (e) => {
