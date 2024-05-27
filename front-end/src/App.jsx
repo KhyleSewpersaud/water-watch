@@ -12,7 +12,7 @@ function App() {
   const scrollToQuestionRef = useRef();
 
   const scrollToQuestion = () => {
-    scrollToQuestionRef.current.scrollIntoView({ behavior: 'smooth' })
+    scrollToQuestionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -22,7 +22,6 @@ function App() {
       window.scrollTo(0, 0);
     }, 0);
   }, []);
-
 
   return (
     <>
@@ -77,6 +76,18 @@ function App() {
         </div>
       </div>
       <Questions ref={scrollToQuestionRef} />
+      <footer className="flex justify-center mt-32">
+        <div className="text-center">
+          <span className="font-bold">Disclaimer:</span> The information provided on this website is for general
+          informational purposes only and is not intended as medical advice. The
+          recommendations on daily water intake are based on general guidelines
+          and may not be suitable for everyone. Please consult with a healthcare
+          professional for advice tailored to your individual needs and
+          circumstances. We are not responsible for any health issues or
+          injuries that may arise from following the information provided on
+          this site.
+        </div>
+      </footer>
     </>
   );
 }

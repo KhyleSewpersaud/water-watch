@@ -156,7 +156,7 @@ const Questions = forwardRef((props, ref) => {
               <div className="flex justify-around font-bold p-32">
                 <div className="text-center w-full">
                   <h2 className="text-brown text-7xl">Gender</h2>
-                  <div className="flex justify-center m-8 font-semibold">
+                  <div className="flex justify-center m-8 font-normal">
                     <select
                       className="w-1/2 bg-lightblue rounded-md text-3xl text-center"
                       value={gender}
@@ -170,8 +170,8 @@ const Questions = forwardRef((props, ref) => {
                 </div>
                 <div className="text-center w-full">
                   <h2 className="text-brown text-7xl">Weight</h2>
-                  <div className="font-semibold">
-                    <div className="flex justify-center">
+                  <div className="">
+                    <div className="flex justify-center font-normal">
                       <input
                         className="my-8 mx-2 w-1/2 bg-lightblue rounded-md text-4xl text-center"
                         value={weight}

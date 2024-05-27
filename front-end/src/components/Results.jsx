@@ -1,4 +1,5 @@
 import "../App.css";
+import { useState } from "react";
 import nalgene from "../assets/nalgene.png";
 import regularmug from "../assets/regularmug.png";
 import purelife from "../assets/purelife.png";
@@ -42,24 +43,114 @@ const bottleStorage = {
 };
 
 const allBottleData = [
-  { image: nalgene, name: "Nalgene", style: "w-32 h-auto", info: "ml: 1000 | oz: 33.8" },
-  { image: gatoradesquirt, name: "Gatorade Squirt", style: "w-32 h-auto", info: "ml: 950 | oz: 32.1"},
-  { image: starbuckscup, name: "Starbucks Cup", style: "w-40 h-auto", info: "ml: 700 | oz: 23.7" },
-  { image: gallon, name: "Gallon Bottle", style: "w-20 h-auto", info: "ml: 3700 | oz: 125.1" },
-  { image: hydroflask, name: "Hydroflask", style: "w-12 h-auto", info: "ml: 530 | oz: 17.9" },
-  { image: lululemon, name: "Lululemon", style: "w-36 h-auto", info: "ml: 700 | oz: 23.7"},
-  { image: stanley, name: "Stanley", style: "w-40 h-auto", info: "ml: 1200 | oz: 40.6" },
-  { image: yetitumbler, name: "Yeti Tumbler", style: "w-40 h-auto", info: "ml: 850| oz: 28.7" },
-  { image: teacup, name: "Teacup", style: "w-20 h-auto", info: "ml: 300 | oz: 10.1" },
-  { image: regularmug, name: "Regular Mug", style: "w-32 h-auto", info: "ml: 550 | oz: 18.6" },
-  { image: purelife, name: "Purelife", style: "w-32 h-auto", info: "ml: 500 | oz: 16.9" },
-  { image: largepurelife, name: "Large Purelife", style: "w-72 h-auto", info: "ml: 1500 | oz: 50.7" },
-  { image: largevoss, name: "Large Voss", style: "w-32 h-auto", info: "ml: 850 | oz: 28.7" },
-  { image: smallfiji, name: "Small Fiji", style: "w-36 h-auto", info: "ml: 330 | oz: 11.2" },
-  { image: redsolocup, name: "Red Solo Cup", style: "w-40 h-auto", info: "ml: 470 | oz: 15.9" },
-  { image: smallglass, name: "Small Glass", style: "w-40 h-auto", info: "ml: 300 | oz: 10.1" },
-  { image: regularglass, name: "Regular Glass", style: "w-24 h-auto", info: "ml: 450 | oz: 15.2" },
-  { image: waterfountain, name: "Water Fountain", style: "w-40 h-auto", info: "1oz/30ml per second" },
+  {
+    image: nalgene,
+    name: "Nalgene",
+    style: "w-32 h-auto",
+    info: "ml: 1000 | oz: 33.8",
+  },
+  {
+    image: gatoradesquirt,
+    name: "Gatorade Squirt",
+    style: "w-32 h-auto",
+    info: "ml: 950 | oz: 32.1",
+  },
+  {
+    image: starbuckscup,
+    name: "Starbucks Cup",
+    style: "w-40 h-auto",
+    info: "ml: 700 | oz: 23.7",
+  },
+  {
+    image: gallon,
+    name: "Gallon Bottle",
+    style: "w-20 h-auto",
+    info: "ml: 3700 | oz: 125.1",
+  },
+  {
+    image: hydroflask,
+    name: "Hydroflask",
+    style: "w-12 h-auto",
+    info: "ml: 530 | oz: 17.9",
+  },
+  {
+    image: lululemon,
+    name: "Lululemon",
+    style: "w-36 h-auto",
+    info: "ml: 700 | oz: 23.7",
+  },
+  {
+    image: stanley,
+    name: "Stanley",
+    style: "w-40 h-auto",
+    info: "ml: 1200 | oz: 40.6",
+  },
+  {
+    image: yetitumbler,
+    name: "Yeti Tumbler",
+    style: "w-40 h-auto",
+    info: "ml: 850| oz: 28.7",
+  },
+  {
+    image: teacup,
+    name: "Teacup",
+    style: "w-20 h-auto",
+    info: "ml: 300 | oz: 10.1",
+  },
+  {
+    image: regularmug,
+    name: "Regular Mug",
+    style: "w-32 h-auto",
+    info: "ml: 550 | oz: 18.6",
+  },
+  {
+    image: purelife,
+    name: "Purelife",
+    style: "w-32 h-auto",
+    info: "ml: 500 | oz: 16.9",
+  },
+  {
+    image: largepurelife,
+    name: "Large Purelife",
+    style: "w-72 h-auto",
+    info: "ml: 1500 | oz: 50.7",
+  },
+  {
+    image: largevoss,
+    name: "Large Voss",
+    style: "w-32 h-auto",
+    info: "ml: 850 | oz: 28.7",
+  },
+  {
+    image: smallfiji,
+    name: "Small Fiji",
+    style: "w-36 h-auto",
+    info: "ml: 330 | oz: 11.2",
+  },
+  {
+    image: redsolocup,
+    name: "Red Solo Cup",
+    style: "w-40 h-auto",
+    info: "ml: 470 | oz: 15.9",
+  },
+  {
+    image: smallglass,
+    name: "Small Glass",
+    style: "w-40 h-auto",
+    info: "ml: 300 | oz: 10.1",
+  },
+  {
+    image: regularglass,
+    name: "Regular Glass",
+    style: "w-24 h-auto",
+    info: "ml: 450 | oz: 15.2",
+  },
+  {
+    image: waterfountain,
+    name: "Water Fountain",
+    style: "w-40 h-auto",
+    info: "1oz/30ml per second",
+  },
 ];
 
 function Results({
@@ -75,6 +166,12 @@ function Results({
   directInputUnit,
   directInput,
 }) {
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  function handleRefresh() {
+    setRefreshKey((prevKey) => prevKey + 1);
+  }
+
   function timeUntilSleep() {
     const now = new Date();
 
@@ -155,7 +252,7 @@ function Results({
     }
 
     if (directInputUnit === "ml") {
-      total += directInput;
+      total += directInput * 1;
     } else {
       total += directInput * 29.57;
     }
@@ -167,13 +264,14 @@ function Results({
   }
 
   function totalWaterLeft() {
-
     if (remaining() <= 0) {
       return (
         <div className="bg-lightbeige rounded-xl p-3 flex justify-center">
-          <h3 className="text-2xl font-semibold">Congrats! You drank your daily required intake!</h3>
+          <h3 className="text-2xl font-semibold">
+            Congrats! You drank your daily required intake!
+          </h3>
         </div>
-      )
+      );
     }
 
     let bottlesUsed = [];
@@ -189,7 +287,7 @@ function Results({
       const neededBottles =
         Math.round(remaining() / bottleCapacity / 0.25) * 0.25;
       return (
-        <div className="flex justify-center w-full">
+        <div key={refreshKey} className="flex justify-center w-full">
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Over the Day You Need to Drink
@@ -198,7 +296,7 @@ function Results({
               <BottleOutput
                 key={bottlesUsed[0]}
                 image={allBottleData[bottlesUsed[0]].image}
-                quantity={neededBottles}
+                quantity={parseFloat(neededBottles)}
                 className={allBottleData[bottlesUsed[0]].style}
               />
             </div>
@@ -211,7 +309,9 @@ function Results({
               <BottleOutput
                 key={bottlesUsed[0]}
                 image={allBottleData[bottlesUsed[0]].image}
-                quantity={(neededBottles / timeUntilSleep()).toFixed(2)}
+                quantity={parseFloat(
+                  (neededBottles / timeUntilSleep()).toFixed(2)
+                )}
                 className={allBottleData[bottlesUsed[0]].style}
               />
             </div>
@@ -294,7 +394,7 @@ function Results({
                 <BottleOutput
                   key={index}
                   image={allBottleData[index].image}
-                  quantity={quantity}
+                  quantity={parseFloat(quantity)}
                   className={allBottleData[index].style}
                 />
               ))}
@@ -308,7 +408,9 @@ function Results({
               <BottleOutput
                 key={randomHourlyBottle.index}
                 image={allBottleData[randomHourlyBottle.index].image}
-                quantity={(toFillOneBottle / timeUntilSleep()).toFixed(2)}
+                quantity={parseFloat(
+                  (toFillOneBottle / timeUntilSleep()).toFixed(2)
+                )}
                 className={allBottleData[randomHourlyBottle.index].style}
               />
             </div>
@@ -350,7 +452,7 @@ function Results({
             <BottleOutput
               key={randomBottle.index}
               image={allBottleData[randomBottle.index].image}
-              quantity={fractionOfOz.toFixed(2)}
+              quantity={parseFloat(fractionOfOz.toFixed(2))}
               className={allBottleData[randomBottle.index].style}
             />
           </div>
@@ -391,7 +493,7 @@ function Results({
             <BottleOutput
               key={randomBottle.index}
               image={allBottleData[randomBottle.index].image}
-              quantity={fractionOfOz.toFixed(2)}
+              quantity={parseFloat(fractionOfOz.toFixed(2))}
               className={allBottleData[randomBottle.index].style}
             />
           </div>
@@ -418,7 +520,7 @@ function Results({
             You Need To Drink{"\u00A0"}
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
-            {Math.max((Math.round((dailyIntake() / 1000) * 10) / 10), 0)}L
+            {Math.max((dailyIntake() / 1000).toFixed(1), 0)}L
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
             {"\u00A0"}Daily
@@ -429,7 +531,7 @@ function Results({
             You Have{"\u00A0"}
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
-            {Math.max(Math.round(((remaining() / 1000) * 10) / 10), 0)}L
+            {Math.max((remaining() / 1000).toFixed(1), 0)}L
           </h1>
           <h1 className="text-center font-bold text-5xl text-lightblue">
             {"\u00A0"}Left
@@ -443,6 +545,14 @@ function Results({
           <div className="flex justify-center w-full my-5">
             {addtionalWaterForActivity()}
           </div>
+        </div>
+        <div className="flex justify-center">
+        <button
+            className="btn btn-accent text-lg"
+            onClick={handleRefresh}
+          >
+            Refresh Results
+          </button>
         </div>
       </div>
     </>
