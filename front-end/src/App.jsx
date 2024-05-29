@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <header className="flex justify-center flex-auto">
+      <header className="flex justify-center">
         <div className="bg-lightbeige p-8 my-2 w-2/5 rounded-xl flex justify-center drop-shadow-md">
           <h1 className="font-display text-lightblue font-bold text-5xl">
             Water Watch
@@ -26,21 +26,22 @@ function App() {
         </div>
       </header>
 
-      <section className="flex justify-around my-20 px-16">
+      <section className="sm:flex justify-around sm:my-20 px-6">
         <div className="flex justify-start flex-col p-4">
-          <h2 className="text-brown text-7xl font-semibold m-2">
+          <h2 className="text-brown sm:text-7xl font-semibold m-2 text-4xl">
             Are You Drinking
           </h2>
-          <h2 className="text-darkblue text-8xl font-semibold m-2">
+          <h2 className="text-darkblue sm:text-8xl font-semibold m-2 text-5xl">
             Enough Water?
           </h2>
           <button
-            className="btn btn-error text-white text-2xl m-2 my-8 w-1/2 min-w-min border-transparent"
+            className="btn btn-error text-white text-2xl m-2 my-8 w-4/5 min-w-min border-transparent sm:w-1/2"
             onClick={scrollToQuestion}
           >
             Check
           </button>
         </div>
+
         <figure className="flex flex-col">
           <div className="flex justify-end">
             <img src={nalgene} className="max-h-40 max-w-lg -mx-12" />
