@@ -1,5 +1,5 @@
 import "./App.css";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import Questions from "./components/Questions.jsx";
 import nalgene from "./assets/nalgene.png";
 import regularmug from "./assets/regularmug.png";
@@ -15,13 +15,6 @@ function App() {
     scrollToQuestionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    window.location.href = `${window.location.origin}/#slide1`;
-
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0);
-  }, []);
 
   return (
     <>
