@@ -18,6 +18,7 @@ import waterfountain from "../assets/waterfountain.png";
 import yetitumbler from "../assets/yetitumbler.png";
 import Bottle from "./Bottle.jsx";
 import PropTypes from "prop-types";
+import "./Intake.css"
 
 const bottleData = [
   { image: nalgene, name: "Nalgene", style: "w-32 h-auto", info: "ml: 1000 | oz: 33.8" },
@@ -47,15 +48,14 @@ function Intake({ bottles, handleBottleChange }) {
   return (
     <>
       <div className="flex flex-col justify-center">
-        <div className="mb-12">
+        <div className="mb-12 w-full">
           <div className="flex justify-center">
-            <h2 className="text-lightblue text-2xl font-semibold mb-3">
+            <h2 className="text-lightblue sm:text-2xl text-lg font-semibold mb-3">
               Reusable Bottles
             </h2>
           </div>
           <div
-            className="overflow-auto border-2 border-brown rounded p-3"
-            style={{ maxWidth: "100%", width: "700px" }}
+            className="containerz overflow-auto border-2 border-brown rounded sm:p-3"
           >
             <div className="flex">
               {bottleData.map((bottle, index) => (
@@ -75,13 +75,12 @@ function Intake({ bottles, handleBottleChange }) {
 
         <div className="mb-12">
           <div className="flex justify-center">
-            <h2 className="text-lightblue text-2xl font-semibold mb-3">
+            <h2 className="text-lightblue sm:text-2xl text-lg font-semibold mb-3">
               Plastic Water Bottles and Cups
             </h2>
           </div>
           <div
-            className="overflow-auto border-2 border-brown rounded p-3"
-            style={{ maxWidth: "100%", width: "700px" }}
+            className="containerz overflow-auto border-2 border-brown rounded sm:p-3"
           >
             <div className="flex">
               {cupData.map((cup, index) => (

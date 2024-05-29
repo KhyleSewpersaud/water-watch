@@ -1,0 +1,16 @@
+/* Intake.css */
+
+/* Default styles */
+.containerz {
+    max-width: 100%;
+    width: 700px;
+  }
+  
+  /* Media query for small screens */
+  @media (max-width: 600px) {
+    .containerz {
+      width: 100%;
+      width: 300px;
+    }
+  }
+  

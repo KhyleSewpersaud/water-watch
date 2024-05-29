@@ -158,7 +158,7 @@ const Questions = forwardRef((props, ref) => {
               className={`carousel-item relative w-full flex flex-col justify-center ${slideIndex === 1 ? 'block' : 'hidden'}`}
             >
               <div className="flex flex-col justify-center items-center">
-                <div className="text-center text-brown font-bold text-5xl">
+                <div className="text-center text-brown font-bold sm:text-5xl text-lg">
                   What Time Did You Wake Up Today?
                 </div>
 
@@ -179,12 +179,12 @@ const Questions = forwardRef((props, ref) => {
               className={`carousel-item relative w-full flex flex-col justify-center ${slideIndex === 2 ? 'block' : 'hidden'}`}
               
             >
-              <div className="flex justify-around font-bold p-32">
+              <div className="flex justify-around font-bold sm:p-32">
                 <div className="text-center w-full">
-                  <h2 className="text-brown text-7xl">Gender</h2>
+                  <h2 className="text-brown sm:text-7xl text-xl">Gender</h2>
                   <div className="flex justify-center m-8 font-normal">
                     <select
-                      className="w-1/2 bg-lightblue rounded-md text-3xl text-center"
+                      className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
                       value={gender}
                       onChange={handleGenderChange}
                       aria-label="gender"
@@ -195,11 +195,11 @@ const Questions = forwardRef((props, ref) => {
                   </div>
                 </div>
                 <div className="text-center w-full">
-                  <h2 className="text-brown text-7xl">Weight</h2>
+                  <h2 className="text-brown sm:text-7xl text-lg">Weight</h2>
                   <div className="">
                     <div className="flex justify-center font-normal">
                       <input
-                        className="my-8 mx-2 w-1/2 bg-lightblue rounded-md text-4xl text-center"
+                        className="my-8 mx-2 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
                         value={weight}
                         onChange={handleWeightChange
                         }
@@ -207,7 +207,7 @@ const Questions = forwardRef((props, ref) => {
                       />
                       <div className="flex justify-center">
                         <select
-                          className="my-8 bg-lightblue rounded-md text-2xl text-center"
+                          className="my-8 bg-lightblue rounded-md sm:text-2xl text-lg text-center"
                           value={weightUnit}
                           onChange={handleWeightUnit}
                         >
@@ -227,12 +227,12 @@ const Questions = forwardRef((props, ref) => {
               <div className="flex justify-center h-full items-center ">
                 <div className="flex flex-col justify-center text-center w-full">
                   <div className="flex flex-col justify-around h-1/2 w-full">
-                    <h2 className="text-brown text-6xl font-bold mb-14">
+                    <h2 className="text-brown sm:text-6xl text-lg font-bold sm:mb-14">
                       Outside Climate
                     </h2>
-                    <div className="flex justify-center m-8">
+                    <div className="flex justify-center sm:m-8 pt-7 sm:p-0">
                       <select
-                        className="w-1/2 bg-lightblue rounded-md text-3xl text-center"
+                        className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
                         value={climate}
                         onChange={handleClimateChange}
                         aria-label="climate"
@@ -246,12 +246,12 @@ const Questions = forwardRef((props, ref) => {
                   </div>
                 </div>
                 <div className="text-center w-full overflow-clip">
-                  <h2 className="text-brown text-6xl font-bold">
+                  <h2 className="text-brown sm:text-6xl text-lg font-bold">
                     Minutes of Exercise Today
                   </h2>
                   <div className="flex justify-center">
                     <input
-                      className="m-8 w-1/2 bg-lightblue rounded-md text-4xl text-center"
+                      className="sm:m-8 my-4 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
                       value={exerciseMinutes}
                       onChange={handleExerciseChange}
                       aria-label="exercise"
@@ -265,17 +265,17 @@ const Questions = forwardRef((props, ref) => {
               className={`carousel-item relative max-h-full w-full p-0 max-w-2/3 flex flex-col ${slideIndex === 4 ? 'block' : 'hidden'}`}
             >
               <div className="flex justify-center my-10">
-                <h2 className="text-brown font-bold text-4xl">
+                <h2 className="text-brown font-bold sm:text-4xl">
                   Your Water Intake So Far
                 </h2>
               </div>
               <div className="flex justify-center mx-4 mb-8">
-                <p className="text-center text-gray-600 text-lg">
+                <p className="text-center text-gray-600 sm:text-lg text-xs">
                   Often, we don&apos;t precisely measure the water we consume
                   daily, relying instead on our familiar cups and bottles.
                   Select containers below that closely match the size and shape
                   of your own to estimate your water intake. Hover over the
-                  pictures for more details. If you happen to know the exact
+                  pictures for more details and swipe to see more. If you happen to know the exact
                   amount you drank today, feel free to enter it below. You can
                   also combine container estimates with exact amounts for a more
                   accurate record.
@@ -283,11 +283,11 @@ const Questions = forwardRef((props, ref) => {
               </div>
               <div className="flex justify-center mb-5">
                 <input
-                  className="bg-transparent border-2 border-brown rounded text-center p-3 text-xl font-semibold text-lightblue"
+                  className="bg-transparent border-2 border-brown rounded text-center sm:p-3 text-xl font-semibold text-lightblue"
                   value={directInput}
                   onChange={(e) => setDirectInput(e.target.value)}
                 />
-                <select className="bg-transparent border-2 border-brown rounded text-center p-3 text-xl font-semibold text-lightblue"
+                <select className="bg-transparent border-2 border-brown rounded text-center sm:p-3 text-xl font-semibold text-lightblue"
                   value={directInputUnit}
                   onChange={handleDirectInputUnit}>
                   <option value="ml">ml</option>
