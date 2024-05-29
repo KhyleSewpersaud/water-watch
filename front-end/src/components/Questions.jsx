@@ -120,12 +120,12 @@ const Questions = forwardRef((props, ref) => {
           max="100"
         ></progress>
       </div>
-      <div className="flex justify-center overflow-x-hidden">
+      <div className="mt-16 flex justify-center overflow-x-hidden">
         <div className="flex flex-row w-full justify-around items-center">
           <button className="btn btn-success btn-circle" onClick={prev}>
             ❮
           </button>
-          <div className="carousel w-3/4 bg-lightbeige rounded-xl h-3/5 p-2">
+          <div className="carousel w-3/4 bg-lightbeige rounded-xl h-[60vh] p-2 relative">
             <div
               id="slide1"
               className="carousel-item relative w-full flex flex-col justify-center"
@@ -234,7 +234,7 @@ const Questions = forwardRef((props, ref) => {
             </div>
             <div
               id="slide4"
-              className="carousel-item relative w-full max-w-2/3 flex flex-col"
+              className="carousel-item relative max-h-full w-full p-0 max-w-2/3 flex flex-col"
             >
               <div className="flex justify-center my-10">
                 <h2 className="text-brown font-bold text-4xl">
