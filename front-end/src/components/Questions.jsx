@@ -1,34 +1,52 @@
 import "../App.jsx";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import TimePicker from "./TimePicker.jsx";
 import Intake from "./Intake.jsx";
 import Results from "./Results.jsx";
 
 const Questions = forwardRef((props, ref) => {
   // ########## Slider Buttons ########## //
-  const prev = () => {
-    const url = window.location.href;
-    const newLastInt = (parseInt(url.slice(-1)) - 1).toString();
-    if (newLastInt === "0") {
-      return;
+  const [slideIndex, setSlideIndex] = useState(1);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const url = window.location.href;
+      const slideNum = parseInt(url.slice(-1));
+      setSlideIndex(slideNum);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  const prev = (e) => {
+    e.preventDefault();
+    if (slideIndex > 1) {
+      setSlideIndex(slideIndex - 1);
+      scrollToSlide(slideIndex - 1);
     }
-    const newUrl = url.substring(0, url.length - 1) + newLastInt;
-    window.location.href = newUrl;
   };
 
-  const next = () => {
-    const url = window.location.href;
-    const newLastInt = (parseInt(url.slice(-1)) + 1).toString();
-    if (newLastInt === "5") {
-      return;
+  const next = (e) => {
+    e.preventDefault();
+    if (slideIndex < 4) { // Assuming there are 4 slides
+      setSlideIndex(slideIndex + 1);
+      scrollToSlide(slideIndex + 1);
     }
-    const newUrl = url.substring(0, url.length - 1) + newLastInt;
-    window.location.href = newUrl;
   };
+
+  const scrollToSlide = (index) => {
+    const carousel = document.querySelector('.carousel');
+    const targetSlide = carousel.querySelector(`#slide${index}`);
+    if (targetSlide) {
+      targetSlide.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  
   // ########## Slider Buttons ########## //
 
   // ########## Progress Bar ########## //
-  const [slideIndex, setSlideIndex] = useState(1);
 
   window.addEventListener("hashchange", () => {
     const url = window.location.href;
@@ -138,13 +156,13 @@ const Questions = forwardRef((props, ref) => {
       </div>
       <div className="mt-16 flex justify-center overflow-x-hidden">
         <div className="flex flex-row w-full justify-around items-center">
-          <button className="btn btn-success btn-circle" onClick={prev}>
+          <button href={`#slide${slideIndex - 1}`} className="btn btn-success btn-circle" onClick={prev}>
             ❮
           </button>
           <div className="carousel w-3/4 bg-lightbeige rounded-xl h-[60vh] p-2 relative">
             <div
               id="slide1"
-              className="carousel-item relative w-full flex flex-col justify-center"
+              className={`carousel-item relative w-full flex flex-col justify-center ${slideIndex === 1 ? 'block' : 'hidden'}`}
             >
               <div className="flex flex-col justify-center items-center">
                 <div className="text-center text-brown font-bold text-5xl">
@@ -165,7 +183,8 @@ const Questions = forwardRef((props, ref) => {
             </div>
             <div
               id="slide2"
-              className="carousel-item relative w-full flex flex-col justify-center"
+              className={`carousel-item relative w-full flex flex-col justify-center ${slideIndex === 2 ? 'block' : 'hidden'}`}
+              
             >
               <div className="flex justify-around font-bold p-32">
                 <div className="text-center w-full">
@@ -210,7 +229,7 @@ const Questions = forwardRef((props, ref) => {
             </div>
             <div
               id="slide3"
-              className="carousel-item relative w-full flex flex-col"
+              className={`carousel-item relative w-full flex flex-col ${slideIndex === 3 ? 'block' : 'hidden'}`}
             >
               <div className="flex justify-center h-full items-center ">
                 <div className="flex flex-col justify-center text-center w-full">
@@ -250,7 +269,7 @@ const Questions = forwardRef((props, ref) => {
             </div>
             <div
               id="slide4"
-              className="carousel-item relative max-h-full w-full p-0 max-w-2/3 flex flex-col"
+              className={`carousel-item relative max-h-full w-full p-0 max-w-2/3 flex flex-col ${slideIndex === 4 ? 'block' : 'hidden'}`}
             >
               <div className="flex justify-center my-10">
                 <h2 className="text-brown font-bold text-4xl">
@@ -290,7 +309,7 @@ const Questions = forwardRef((props, ref) => {
               </div>
             </div>
           </div>
-          <button className="btn btn-success btn-circle size-12" onClick={next}>
+          <button href={`#slide${slideIndex + 1}`} className="btn btn-success btn-circle size-12" onClick={next}>
             ❯
           </button>
         </div>
