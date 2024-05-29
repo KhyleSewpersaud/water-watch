@@ -135,6 +135,8 @@ const Questions = forwardRef((props, ref) => {
   };
   // ########## Intake ########## //
 
+  const carouselHeight = slideIndex === 4 ? 'auto' : '60vh';
+
   return (
     <>
       <div className="flex justify-center my-8" ref={ref}>
@@ -148,7 +150,9 @@ const Questions = forwardRef((props, ref) => {
           <button href={`#slide${slideIndex - 1}`} className="btn btn-success btn-circle" onClick={prev}>
             ❮
           </button>
-          <div className="carousel w-3/4 bg-lightbeige rounded-xl h-[60vh] p-2 relative">
+          <div className="carousel w-3/4 bg-lightbeige rounded-xl p-2 relative"
+          style={{ height: carouselHeight }}
+          >
             <div
               id="slide1"
               className={`carousel-item relative w-full flex flex-col justify-center ${slideIndex === 1 ? 'block' : 'hidden'}`}
