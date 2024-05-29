@@ -43,17 +43,7 @@ const Questions = forwardRef((props, ref) => {
     }
   };
 
-  
   // ########## Slider Buttons ########## //
-
-  // ########## Progress Bar ########## //
-
-  window.addEventListener("hashchange", () => {
-    const url = window.location.href;
-    const slideNum = parseInt(url.slice(-1));
-    setSlideIndex(((slideNum - 1) / 3) * 100);
-  });
-  // ########## Progress Bar ########## //
 
   // ########## Inputs on Slider ########## //
   const [weight, setWeight] = useState(0);
@@ -148,12 +138,11 @@ const Questions = forwardRef((props, ref) => {
   return (
     <>
       <div className="flex justify-center my-8" ref={ref}>
-        <progress
-          className="progress progress-success w-56"
-          value={slideIndex}
-          max="100"
-        ></progress>
       </div>
+      <div className="flex justify-center">
+        <div className="divider divider-success w-4/5"></div>
+      </div>
+      
       <div className="mt-16 flex justify-center overflow-x-hidden">
         <div className="flex flex-row w-full justify-around items-center">
           <button href={`#slide${slideIndex - 1}`} className="btn btn-success btn-circle" onClick={prev}>

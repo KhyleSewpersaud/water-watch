@@ -3,34 +3,34 @@ import {describe, expect, it, beforeEach} from 'vitest';
 import Questions from '../components/Questions';
 
 describe("Testing slider buttons", () => {
+    let nextButton;
+    let prevButton;
+
     beforeEach(() => {
-        // Mocking window.location.href to avoid actual navigation in tests
-        const url = new URL('http://localhost/slide1');
-        delete window.location;
-        window.location = { ...url, href: url.href };
+        render(<Questions />);
+        nextButton = screen.getByRole('button', { name: '❯' });
+        prevButton = screen.getByRole('button', { name: '❮' });
+        window.HTMLElement.prototype.scrollIntoView = function() {};
     });
 
     it("Goes to next carousel with next button", () => {
-        render(<Questions />);
-        const nextButton = screen.getByRole('button', { name: '❯' });  
-        fireEvent.click(nextButton)
-        expect(window.location.href).toBe('http://localhost/slide2');
+        fireEvent.click(nextButton);
+        const slide2 = screen.getByText('Gender');
+        expect(slide2).toBeVisible();
+    });
 
-    })
     it("Goes to previous carousel with prev button", () => {
-        render(<Questions />);
-        const nextButton = screen.getByRole('button', { name: '❯' });
-        const prevButton = screen.getByRole('button', { name: '❮' });
-
         // Move to the next slide first
         fireEvent.click(nextButton);
-        expect(window.location.href).toBe('http://localhost/slide2');
+        const slide2 = screen.getByText('Gender');
+        expect(slide2).toBeVisible();
 
         // Then move back to the previous slide
         fireEvent.click(prevButton);
-        expect(window.location.href).toBe('http://localhost/slide1');
-    })
-})
+        const slide1 = screen.getByText('What Time Did You Wake Up Today?');
+        expect(slide1).toBeVisible();
+    });
+});
 
 describe("Testing form inputs", () => {
     beforeEach(() => {
