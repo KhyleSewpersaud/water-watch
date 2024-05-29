@@ -150,7 +150,7 @@ const Questions = forwardRef((props, ref) => {
           <button href={`#slide${slideIndex - 1}`} className="btn btn-success btn-circle" onClick={prev}>
             ❮
           </button>
-          <div className="carousel w-3/4 bg-lightbeige rounded-xl p-2 relative"
+          <div className="carousel w-3/4 bg-lightbeige rounded-xl p-2 relative drop-shadow-2xl"
           style={{ height: carouselHeight }}
           >
             <div
