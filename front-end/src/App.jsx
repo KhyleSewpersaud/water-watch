@@ -76,7 +76,7 @@ function App() {
         </div>
       </div>
       <Questions ref={scrollToQuestionRef} />
-      <footer className="flex justify-center mt-32">
+      <footer className="flex justify-center mt-20 pb-5 px-4">
         <div className="text-center">
           <span className="font-bold">Disclaimer:</span> The information provided on this website is for general
           informational purposes only and is not intended as medical advice. The

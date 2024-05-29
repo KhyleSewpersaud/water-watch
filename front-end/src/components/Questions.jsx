@@ -58,7 +58,7 @@ const Questions = forwardRef((props, ref) => {
     if (!isNaN(value) && value !== "") {
       const maxWeight = Math.min(Number(value), 1500);
       setWeight(Number(maxWeight));
-    } else  {
+    } else {
       setWeight(0);
     }
   };
@@ -73,11 +73,11 @@ const Questions = forwardRef((props, ref) => {
 
   const handleExerciseChange = (e) => {
     const value = e.target.value;
-    if (!isNaN(value) && value !== '') {  
+    if (!isNaN(value) && value !== '') {
       const maxMinutes = Math.min(Number(value), 1440);
       setExerciseMinutes(maxMinutes);
     } else {
-      setExerciseMinutes(0); 
+      setExerciseMinutes(0);
     }
   };
   // ########## Inputs on Slider ########## //
@@ -136,20 +136,18 @@ const Questions = forwardRef((props, ref) => {
           max="100"
         ></progress>
       </div>
-      <div className="flex justify-center">
-        <div className="flex justify-center">
-          <div className="flex flex-col justify-center">
-            <button className="btn btn-success btn-circle mr-10" onClick={prev}>
-              ❮
-            </button>
-          </div>
-          <div className="carousel w-2/4 min-h-fit max-h-full bg-lightbeige rounded-xl">
+      <div className="mt-16 flex justify-center overflow-x-hidden">
+        <div className="flex flex-row w-full justify-around items-center">
+          <button className="btn btn-success btn-circle" onClick={prev}>
+            ❮
+          </button>
+          <div className="carousel w-3/4 bg-lightbeige rounded-xl h-[60vh] p-2 relative">
             <div
               id="slide1"
-              className="carousel-item relative w-full flex flex-col"
+              className="carousel-item relative w-full flex flex-col justify-center"
             >
-              <div className="flex flex-col justify-center h-full">
-                <div className="flex justify-center text-brown font-bold text-5xl text-center">
+              <div className="flex flex-col justify-center items-center">
+                <div className="text-center text-brown font-bold text-5xl">
                   What Time Did You Wake Up Today?
                 </div>
 
@@ -235,7 +233,7 @@ const Questions = forwardRef((props, ref) => {
                     </div>
                   </div>
                 </div>
-                <div className="text-center w-full">
+                <div className="text-center w-full overflow-clip">
                   <h2 className="text-brown text-6xl font-bold">
                     Minutes of Exercise Today
                   </h2>
@@ -252,7 +250,7 @@ const Questions = forwardRef((props, ref) => {
             </div>
             <div
               id="slide4"
-              className="carousel-item relative w-full max-w-2/3 flex flex-col"
+              className="carousel-item relative max-h-full w-full p-0 max-w-2/3 flex flex-col"
             >
               <div className="flex justify-center my-10">
                 <h2 className="text-brown font-bold text-4xl">
@@ -278,8 +276,8 @@ const Questions = forwardRef((props, ref) => {
                   onChange={(e) => setDirectInput(e.target.value)}
                 />
                 <select className="bg-transparent border-2 border-brown rounded text-center p-3 text-xl font-semibold text-lightblue"
-                value={directInputUnit}
-                onChange={handleDirectInputUnit}>
+                  value={directInputUnit}
+                  onChange={handleDirectInputUnit}>
                   <option value="ml">ml</option>
                   <option value="oz">oz</option>
                 </select>
@@ -292,11 +290,9 @@ const Questions = forwardRef((props, ref) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center">
-            <button className="btn btn-success btn-circle ml-10" onClick={next}>
-              ❯
-            </button>
-          </div>
+          <button className="btn btn-success btn-circle size-12" onClick={next}>
+            ❯
+          </button>
         </div>
       </div>
       <Results
