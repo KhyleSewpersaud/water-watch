@@ -23,7 +23,7 @@ describe('Results Component', () => {
         weight: "70",
         climate: "neutral",
         exerciseMinutes: 60,
-        bottles: Array(18).fill(0.25), // 1 of each bottle type
+        bottles: [0.5, 0.5, ...Array(16).fill(0)], // 1 of each bottle type
         weightUnit: "kg",
         directInputUnit: "ml",
         directInput: 500,

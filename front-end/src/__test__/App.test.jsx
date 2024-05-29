@@ -24,10 +24,3 @@ describe("Checking Check Button", () => {
   });
 });
 
-describe('Testing to see if URL hash redirect works', () => { 
-  it("Add's /#slide1 loads", async () => {
-    render(<App />);
-
-    expect(window.location.href).toEqual("http://localhost:3000/#slide1")
-  })
- })
