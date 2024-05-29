@@ -19,15 +19,15 @@ function App() {
   return (
     <>
       <header className="flex justify-center">
-        <div className="bg-lightbeige p-8 my-2 w-2/5 rounded-xl flex justify-center drop-shadow-md">
-          <h1 className="font-display text-lightblue font-bold text-5xl">
+        <div className="bg-lightbeige p-8 my-2 sm:w-2/5 rounded-xl flex justify-center drop-shadow-md">
+          <h1 className="font-display text-lightblue font-bold sm:text-5xl text-xl">
             Water Watch
           </h1>
         </div>
       </header>
 
       <section className="sm:flex justify-around sm:my-20 px-6">
-        <div className="flex justify-start flex-col p-4">
+        <div className="flex justify-start flex-col p-4 text-center sm:text-left">
           <h2 className="text-brown sm:text-7xl font-semibold m-2 text-4xl">
             Are You Drinking
           </h2>
@@ -35,7 +35,7 @@ function App() {
             Enough Water?
           </h2>
           <button
-            className="btn btn-error text-white text-2xl m-2 my-8 w-4/5 min-w-min border-transparent sm:w-1/2"
+            className="btn btn-error text-white text-2xl m-2 my-8 w-full min-w-min border-transparent sm:w-1/2"
             onClick={scrollToQuestion}
           >
             Check
@@ -59,11 +59,11 @@ function App() {
 
           <div className="divider bg-darkblue max-h-2"></div>
 
-          <div className="flex justify-start flex-col">
-            <h3 className="text-2xl font-bold whitespace-normal leading-2 text-brown">
+          <div className="flex justify-start flex-col ">
+            <h3 className="text-2xl font-bold whitespace-normal leading-2 text-brown text-center sm:text-left">
               Recommended Daily Water Intake For The
             </h3>
-            <h3 className="text-3xl font-extrabold whitespace-normal leading-2 text-darkblue">
+            <h3 className="text-3xl font-extrabold whitespace-normal leading-2 text-darkblue text-center sm:text-left">
               Average Man
             </h3>
           </div>
