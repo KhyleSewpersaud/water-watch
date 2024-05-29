@@ -21,7 +21,7 @@ function TimePicker(props) {
         onChange={hourChange}
         className="input input-bordered sm:w-1/6 text-lightblue font-bold sm:text-7xl text-lg text-end border-0 h-fit bg-transparent"
       />
-      <label className="font-semibold sm:text-7xl text-lg sm:mb-3 mb-1 text-lightblue">:</label>
+      <label className="font-semibold sm:text-7xl text-xl sm:mb-3 mb-1 text-lightblue">:</label>
       
       <input
         type="number"
@@ -30,14 +30,14 @@ function TimePicker(props) {
         max="59"
         value={minute}
         onChange={minuteChange}
-        className="input input-bordered sm:w-1/6 text-lightblue font-bold sm:text-7xl text-lg text-start border-0 h-fit bg-transparent"
+        className="input input-bordered sm:w-1/6 text-lightblue font-bold sm:text-7xl text-xl text-start border-0 h-fit bg-transparent"
       />
 
       <select
         id="period"
         value={period}
         onChange={periodChange}
-        className="input input-bordered text-lightblue font-bold sm:text-7xl text-lg text-start border-0 h-fit bg-transparent"
+        className="input input-bordered text-lightblue font-bold sm:text-7xl text-xl text-start border-0 h-fit bg-transparent"
       >
         <option value="AM">AM</option>
         <option value="PM">PM</option>
