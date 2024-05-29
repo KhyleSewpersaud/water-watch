@@ -145,8 +145,8 @@ const Questions = forwardRef((props, ref) => {
         <div className="divider divider-success w-4/5"></div>
       </div>
       
-      <div className="mt-16 flex justify-center overflow-x-hidden">
-        <div className="flex flex-row w-full justify-around items-center">
+      <section className="mt-16 flex justify-center overflow-x-hidden">
+        <main className="flex flex-row w-full justify-around items-center">
           <button href={`#slide${slideIndex - 1}`} className="btn btn-success btn-circle" onClick={prev}>
             ❮
           </button>
@@ -305,8 +305,8 @@ const Questions = forwardRef((props, ref) => {
           <button href={`#slide${slideIndex + 1}`} className="btn btn-success btn-circle size-12" onClick={next}>
             ❯
           </button>
-        </div>
-      </div>
+        </main>
+      </section>
       <Results
         hours={hour}
         minute={minute}

@@ -287,25 +287,25 @@ function Results({
       const neededBottles =
         Math.round(remaining() / bottleCapacity / 0.25) * 0.25;
       return (
-        <div key={refreshKey} className="flex justify-center w-full">
+        <section key={refreshKey} className="flex justify-center w-full">
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Over the Day You Need to Drink
             </h3>
-            <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
               <BottleOutput
                 key={bottlesUsed[0]}
                 image={allBottleData[bottlesUsed[0]].image}
                 quantity={parseFloat(neededBottles)}
                 className={allBottleData[bottlesUsed[0]].style}
               />
-            </div>
+            </figure>
           </div>
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Every Hour Until You Sleep You Need to Drink
             </h3>
-            <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
               <BottleOutput
                 key={bottlesUsed[0]}
                 image={allBottleData[bottlesUsed[0]].image}
@@ -314,9 +314,9 @@ function Results({
                 )}
                 className={allBottleData[bottlesUsed[0]].style}
               />
-            </div>
+            </figure>
           </div>
-        </div>
+        </section>
       );
     }
 
@@ -389,7 +389,7 @@ function Results({
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Over the the Day You Need to Drink
             </h3>
-            <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
               {Object.entries(finalResult).map(([index, quantity]) => (
                 <BottleOutput
                   key={index}
@@ -398,13 +398,13 @@ function Results({
                   className={allBottleData[index].style}
                 />
               ))}
-            </div>
+            </figure>
           </div>
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-/3">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Every Hour Until You Sleep You Need to Drink
             </h3>
-            <div className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
               <BottleOutput
                 key={randomHourlyBottle.index}
                 image={allBottleData[randomHourlyBottle.index].image}
@@ -413,7 +413,7 @@ function Results({
                 )}
                 className={allBottleData[randomHourlyBottle.index].style}
               />
-            </div>
+            </figure>
           </div>
         </div>
       );
@@ -448,14 +448,14 @@ function Results({
           <h3 className="text-center text-brown font-semibold text-3xl mb-2">
             Consider Drinking an Extra
           </h3>
-          <div className=" p-3 flex justify-center">
+          <figure className=" p-3 flex justify-center">
             <BottleOutput
               key={randomBottle.index}
               image={allBottleData[randomBottle.index].image}
               quantity={parseFloat(fractionOfOz.toFixed(2))}
               className={allBottleData[randomBottle.index].style}
             />
-          </div>
+          </figure>
           <h3 className="text-center text-brown font-semibold text-3xl mb-2">
             Every 20 Minutes in the Heat
           </h3>
@@ -489,14 +489,14 @@ function Results({
           <h3 className="text-center text-brown font-semibold text-3xl mb-2">
             Consider Drinking an Extra
           </h3>
-          <div className=" p-3  flex justify-center">
+          <figure className=" p-3  flex justify-center">
             <BottleOutput
               key={randomBottle.index}
               image={allBottleData[randomBottle.index].image}
               quantity={parseFloat(fractionOfOz.toFixed(2))}
               className={allBottleData[randomBottle.index].style}
             />
-          </div>
+          </figure>
           <h3 className="text-center text-brown font-semibold text-3xl mb-2">
             Every 15 Minutes When Exercising
           </h3>

@@ -18,15 +18,15 @@ function App() {
 
   return (
     <>
-      <div className="flex justify-center flex-auto">
+      <header className="flex justify-center flex-auto">
         <div className="bg-lightbeige p-8 my-2 w-2/5 rounded-xl flex justify-center">
           <h1 className="font-display text-lightblue font-bold text-5xl">
             Water Watch
           </h1>
         </div>
-      </div>
+      </header>
 
-      <div className="flex justify-around my-20 px-16">
+      <section className="flex justify-around my-20 px-16">
         <div className="flex justify-start flex-col p-4">
           <h2 className="text-brown text-7xl font-semibold m-2">
             Are You Drinking
@@ -41,7 +41,7 @@ function App() {
             Check
           </button>
         </div>
-        <div className="flex flex-col">
+        <figure className="flex flex-col">
           <div className="flex justify-end">
             <img src={nalgene} className="max-h-40 max-w-lg -mx-12" />
             <img src={regularmug} className="max-h-40 max-w-lg -mx-16 mt-6" />
@@ -66,8 +66,8 @@ function App() {
               Average Man
             </h3>
           </div>
-        </div>
-      </div>
+        </figure>
+      </section>
       <Questions ref={scrollToQuestionRef} />
       <footer className="flex justify-center mt-20 pb-5 px-4">
         <div className="text-center">
