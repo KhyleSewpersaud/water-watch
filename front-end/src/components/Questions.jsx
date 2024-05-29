@@ -275,7 +275,7 @@ const Questions = forwardRef((props, ref) => {
                 slideIndex === 4 ? "block" : "hidden"
               }`}
             >
-              <div className="ml-3">
+              <div className="ml-5 sm:ml-0">
                 <div className="flex justify-center my-10">
                   <h2 className="text-brown font-bold sm:text-4xl">
                     Your Water Intake So Far
