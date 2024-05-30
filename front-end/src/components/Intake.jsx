@@ -32,8 +32,8 @@ const bottleData = [
 ];
 
 const cupData = [
-  { image: teacup, name: "Teacup", style: "w-20 h-auto", info: "ml: 300 | oz: 10.1" },
-  { image: regularmug, name: "Regular Mug", style: "w-32 h-auto", info: "ml: 550 | oz: 18.6" },
+  { image: teacup, name: "Teacup", style: "w-32 h-auto", info: "ml: 300 | oz: 10.1" },
+  { image: regularmug, name: "Regular Mug", style: "w-48 h-auto", info: "ml: 550 | oz: 18.6" },
   { image: purelife, name: "Purelife", style: "w-32 h-auto", info: "ml: 500 | oz: 16.9" },
   { image: largepurelife, name: "Large Purelife", style: "w-72 h-auto", info: "ml: 1500 | oz: 50.7" },
   { image: largevoss, name: "Large Voss", style: "w-32 h-auto", info: "ml: 850 | oz: 28.7" },

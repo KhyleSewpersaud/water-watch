@@ -30,13 +30,15 @@ function Bottle({
           <button onClick={decrease} className="text-2xl font-semibold px-1">
             -
           </button>
-          <img src={image} alt="Bottle" className={className} />
+          <div className="relative group">
+            <img src={image} alt="Bottle" className={className} />
+            <div className="absolute left-0 -translate-x-16 -translate-y-10 mt-2 hidden group-hover:block bg-gray-700 text-white text-sm p-2 rounded z-20">
+              {info}
+            </div>
+          </div>
           <button onClick={increase} className="text-xl font-semibold px-1">
             +
           </button>
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full mt-2 hidden group-hover:block bg-gray-700 text-white text-sm p-2 rounded z-20">
-            {info}
-          </div>
         </div>
         <div className="flex justify-center ml-3">
           <input
