@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <header className="flex justify-center">
-        <div className="bg-lightbeige p-8 my-2 sm:w-2/5 w-11/12 rounded-xl flex justify-center drop-shadow-md">
+        <div className="bg-lightbeige p-8 my-2 sm:w-2/5 w-11/12 rounded-xl flex justify-center drop-shadow-md ml-4 sm:ml-0">
           <h1 className="font-display text-lightblue font-bold sm:text-5xl text-xl">
             Water Watch
           </h1>
@@ -27,11 +27,11 @@ function App() {
       </header>
 
       <section className="sm:flex justify-around sm:my-20 px-6">
-        <div className="flex justify-start flex-col p-4 text-center sm:text-left">
+        <div className="flex justify-start flex-col p-4 text-center sm:text-left ml-2 sm:ml-0">
           <h2 className="text-brown sm:text-7xl font-semibold m-2 text-4xl">
             Are You Drinking
           </h2>
-          <h2 className="text-darkblue sm:text-8xl font-semibold m-2 text-4xl">
+          <h2 className="text-darkblue sm:text-8xl font-semibold m-2 text-4xl ml-2 sm:ml-0">
             Enough Water?
           </h2>
           <button
@@ -42,7 +42,7 @@ function App() {
           </button>
         </div>
 
-        <figure className="flex flex-col">
+        <figure className="flex flex-col ml-3 sm:ml-0">
           <div className="flex justify-end">
             <img src={nalgene} className="max-h-40 max-w-lg -mx-12" />
             <img src={regularmug} className="max-h-40 max-w-lg -mx-16 mt-6" />

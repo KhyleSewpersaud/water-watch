@@ -448,7 +448,7 @@ function Results({
 
       return (
         <div className="flex justify-center items-center bg-lightbrown p-5 rounded-xl mx-2">
-          <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+          <h3 className="text-center text-brown font-semibold sm:text-3xl mb-2">
             Consider Drinking an Extra
           </h3>
           <figure className=" p-3 flex justify-center">
@@ -459,7 +459,7 @@ function Results({
               className={allBottleData[randomBottle.index].style}
             />
           </figure>
-          <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+          <h3 className="text-center text-brown font-semibold sm:text-3xl mb-2">
             Every 20 Minutes in the Heat
           </h3>
         </div>
@@ -489,7 +489,7 @@ function Results({
 
       return (
         <div className="flex justify-center items-center bg-lightbrown p-5 rounded-xl mx-2">
-          <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+          <h3 className="text-center text-brown font-semibold sm:text-3xl mb-2">
             Consider Drinking an Extra
           </h3>
           <figure className=" p-3  flex justify-center">
@@ -500,7 +500,7 @@ function Results({
               className={allBottleData[randomBottle.index].style}
             />
           </figure>
-          <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+          <h3 className="text-center text-brown font-semibold sm:text-3xl mb-2">
             Every 15 Minutes When Exercising
           </h3>
         </div>
