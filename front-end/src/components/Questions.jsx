@@ -277,12 +277,12 @@ const Questions = forwardRef((props, ref) => {
             >
               <div className="ml-5 sm:ml-0">
                 <div className="flex justify-center my-10">
-                  <h2 className="text-brown font-bold sm:text-4xl">
+                  <h2 className="text-brown font-bold sm:text-4xl text-xl">
                     Your Water Intake So Far
                   </h2>
                 </div>
                 <div className="flex justify-center mx-4 mb-8">
-                  <p className="text-center text-gray-600 sm:text-lg text-xs">
+                  <p className="text-center text-gray-600 sm:text-lg text-sm">
                     Often, we don&apos;t precisely measure the water we consume
                     daily, relying instead on our familiar cups and bottles.
                     Select containers below that closely match the size and

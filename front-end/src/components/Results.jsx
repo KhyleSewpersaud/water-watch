@@ -389,7 +389,7 @@ function Results({
       return (
         <div className="flex flex-col sm:flex-row justify-center w-full items-center sm:items-start">
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/3 mb-5 sm:mb-0">
-            <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+            <h3 className="text-center text-brown font-semibold text-xl sm:text-3xl mb-2">
               Over the the Day You Need to Drink
             </h3>
             <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
@@ -404,7 +404,7 @@ function Results({
             </figure>
           </div>
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/3">
-            <h3 className="text-center text-brown font-semibold text-3xl mb-2">
+            <h3 className="text-center text-brown font-semibold text-xl sm:text-3xl mb-2">
               Every Hour Until You Sleep You Need to Drink
             </h3>
             <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
@@ -517,26 +517,26 @@ function Results({
 
   return (
     <>
-      <div className="flex justify-center my-14 flex-col">
+      <div className="flex justify-center my-14 flex-col ml-3">
         <div className="flex justify-center">
-          <h1 className="text-center font-bold sm:text-5xl text-xl text-brown">
+          <h1 className="text-center font-bold sm:text-5xl text-2xl text-brown">
             You Need To Drink{"\u00A0"}
           </h1>
-          <h1 className="text-center font-bold sm:text-5xl text-xl text-lightblue">
+          <h1 className="text-center font-bold sm:text-5xl text-2xl text-lightblue">
             {Math.max((dailyIntake() / 1000).toFixed(1), 0)}L
           </h1>
-          <h1 className="text-center font-bold sm:text-5xl text-xl text-lightblue">
+          <h1 className="text-center font-bold sm:text-5xl text-2xl text-lightblue">
             {"\u00A0"}Daily
           </h1>
         </div>
         <div className="flex justify-center">
-          <h1 className="text-center font-bold sm:text-5xl text-xl text-brown">
+          <h1 className="text-center font-bold sm:text-5xl text-2xl text-brown">
             You Have{"\u00A0"}
           </h1>
-          <h1 className="text-center font-bold sm:text-5xl text-xl text-lightblue">
+          <h1 className="text-center font-bold sm:text-5xl text-2xl text-lightblue">
             {Math.max((remaining() / 1000).toFixed(1), 0)}L
           </h1>
-          <h1 className="text-center font-bold sm:text-5xl text-xl text-lightblue">
+          <h1 className="text-center font-bold sm:text-5xl text-2xl text-lightblue">
             {"\u00A0"}Left
           </h1>
         </div>

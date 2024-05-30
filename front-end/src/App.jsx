@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <header className="flex justify-center">
-        <div className="bg-lightbeige p-8 my-2 sm:w-2/5 rounded-xl flex justify-center drop-shadow-md">
+        <div className="bg-lightbeige p-8 my-2 sm:w-2/5 w-11/12 rounded-xl flex justify-center drop-shadow-md">
           <h1 className="font-display text-lightblue font-bold sm:text-5xl text-xl">
             Water Watch
           </h1>
@@ -31,7 +31,7 @@ function App() {
           <h2 className="text-brown sm:text-7xl font-semibold m-2 text-4xl">
             Are You Drinking
           </h2>
-          <h2 className="text-darkblue sm:text-8xl font-semibold m-2 text-5xl">
+          <h2 className="text-darkblue sm:text-8xl font-semibold m-2 text-4xl">
             Enough Water?
           </h2>
           <button
