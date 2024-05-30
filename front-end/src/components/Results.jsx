@@ -287,8 +287,11 @@ function Results({
       const neededBottles =
         Math.round(remaining() / bottleCapacity / 0.25) * 0.25;
       return (
-        <section key={refreshKey} className="flex justify-center w-full">
-          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
+        <div
+          key={refreshKey}
+          className="flex flex-col sm:flex-row justify-center items-center sm:items-start w-full"
+        >
+          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/4 mb-5 sm:mb-0">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Over the Day You Need to Drink
             </h3>
@@ -301,7 +304,7 @@ function Results({
               />
             </figure>
           </div>
-          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/4">
+          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/4">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Every Hour Until You Sleep You Need to Drink
             </h3>
@@ -316,7 +319,7 @@ function Results({
               />
             </figure>
           </div>
-        </section>
+        </div>
       );
     }
 
@@ -384,8 +387,8 @@ function Results({
       }
 
       return (
-        <div className="flex justify-center w-full">
-          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-1/3">
+        <div className="flex flex-col sm:flex-row justify-center w-full items-center sm:items-start">
+          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/3 mb-5 sm:mb-0">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Over the the Day You Need to Drink
             </h3>
@@ -400,7 +403,7 @@ function Results({
               ))}
             </figure>
           </div>
-          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-/3">
+          <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/3">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
               Every Hour Until You Sleep You Need to Drink
             </h3>
@@ -516,24 +519,24 @@ function Results({
     <>
       <div className="flex justify-center my-14 flex-col">
         <div className="flex justify-center">
-          <h1 className="text-center font-bold text-5xl text-brown">
+          <h1 className="text-center font-bold sm:text-5xl text-xl text-brown">
             You Need To Drink{"\u00A0"}
           </h1>
-          <h1 className="text-center font-bold text-5xl text-lightblue">
+          <h1 className="text-center font-bold sm:text-5xl text-xl text-lightblue">
             {Math.max((dailyIntake() / 1000).toFixed(1), 0)}L
           </h1>
-          <h1 className="text-center font-bold text-5xl text-lightblue">
+          <h1 className="text-center font-bold sm:text-5xl text-xl text-lightblue">
             {"\u00A0"}Daily
           </h1>
         </div>
         <div className="flex justify-center">
-          <h1 className="text-center font-bold text-5xl text-brown">
+          <h1 className="text-center font-bold sm:text-5xl text-xl text-brown">
             You Have{"\u00A0"}
           </h1>
-          <h1 className="text-center font-bold text-5xl text-lightblue">
+          <h1 className="text-center font-bold sm:text-5xl text-xl text-lightblue">
             {Math.max((remaining() / 1000).toFixed(1), 0)}L
           </h1>
-          <h1 className="text-center font-bold text-5xl text-lightblue">
+          <h1 className="text-center font-bold sm:text-5xl text-xl text-lightblue">
             {"\u00A0"}Left
           </h1>
         </div>
@@ -547,10 +550,7 @@ function Results({
           </div>
         </div>
         <div className="flex justify-center">
-        <button
-            className="btn btn-accent text-lg"
-            onClick={handleRefresh}
-          >
+          <button className="btn btn-accent text-lg" onClick={handleRefresh}>
             Refresh Results
           </button>
         </div>
