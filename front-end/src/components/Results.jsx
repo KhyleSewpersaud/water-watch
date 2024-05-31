@@ -112,7 +112,7 @@ const allBottleData = [
   {
     image: largepurelife,
     name: "Large Purelife",
-    style: "w-72 h-auto",
+    style: "w-28 h-auto",
     info: "ml: 1500 | oz: 50.7",
   },
   {
@@ -356,8 +356,16 @@ function Results({
 
       let res = [];
 
+      
+      const start = Date.now(); // Record the start time
+      const duration = 1000; // Set a default maximum duration (in milliseconds)
+
       // eslint-disable-next-line no-inner-declarations
       function dfs(i, cur, total) {
+        // Check if the function has been running longer than the maximum duration
+        if (Date.now() - start > duration) {
+          return; 
+        }
         if (total >= remainingWater - 200 && total <= remainingWater + 200) {
           res.push(cur.slice());
           return;

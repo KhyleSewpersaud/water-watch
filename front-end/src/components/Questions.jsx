@@ -138,6 +138,10 @@ const Questions = forwardRef((props, ref) => {
 
   const carouselHeight = slideIndex === 4 ? "auto" : "60vh";
 
+  const clearButton = () => {
+    setBottles(Array(18).fill(0));
+  }
+
   return (
     <>
       <div className="flex justify-center my-8" ref={ref}></div>
@@ -314,6 +318,12 @@ const Questions = forwardRef((props, ref) => {
                     handleBottleChange={handleBottleChange}
                   />
                 </div>
+              </div>
+              <div className="flex justify-center">
+                <button className="btn btn-info flex justify-center w-1/6"
+                onClick={clearButton}>
+                  Clear
+                </button>
               </div>
             </div>
           </div>
