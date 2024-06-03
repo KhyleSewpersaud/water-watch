@@ -140,7 +140,7 @@ const Questions = forwardRef((props, ref) => {
 
   const clearButton = () => {
     setBottles(Array(18).fill(0));
-  }
+  };
 
   return (
     <>
@@ -149,206 +149,211 @@ const Questions = forwardRef((props, ref) => {
         <div className="divider divider-success w-4/5"></div>
       </div>
 
-      <section className="mt-16 flex justify-center overflow-x-hidden">
-        <main className="flex flex-row w-full justify-around items-center">
-          <button
-            href={`#slide${slideIndex - 1}`}
-            className="btn btn-success btn-circle"
-            onClick={prev}
-          >
-            ❮
-          </button>
-          <div
-            className="carousel w-3/4 bg-lightbeige rounded-xl p-2 relative drop-shadow-2xl"
-            style={{ height: carouselHeight }}
-          >
-            <div
-              id="slide1"
-              className={`carousel-item relative w-full flex flex-col justify-center ${
-                slideIndex === 1 ? "block" : "hidden"
-              }`}
+      <div className="font-display">
+        <section className="mt-16 flex justify-center overflow-x-hidden">
+          <main className="flex flex-row w-full justify-around items-center">
+            <button
+              href={`#slide${slideIndex - 1}`}
+              className="btn btn-success btn-circle"
+              onClick={prev}
             >
-              <div className="flex flex-col justify-center items-center">
-                <div className="text-center text-brown font-bold sm:text-5xl text-lg">
-                  What Time Did You Wake Up Today?
-                </div>
+              ❮
+            </button>
+            <div
+              className="carousel w-3/4 bg-lightbeige rounded-xl p-2 relative drop-shadow-2xl"
+              style={{ height: carouselHeight }}
+            >
+              <div
+                id="slide1"
+                className={`carousel-item relative w-full flex flex-col justify-center ${
+                  slideIndex === 1 ? "block" : "hidden"
+                }`}
+              >
+                <div className="flex flex-col justify-center items-center">
+                  <div className="text-center text-brown font-bold sm:text-5xl text-lg">
+                    What Time Did You Wake Up Today?
+                  </div>
 
-                <div className="flex justify-center">
-                  <TimePicker
-                    minute={minute}
-                    minuteChange={handleMinuteChange}
-                    hour={hour}
-                    hourChange={handleHourChange}
-                    period={period}
-                    periodChange={handlePeriodChange}
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              id="slide2"
-              className={`carousel-item relative w-full flex flex-col justify-center ${
-                slideIndex === 2 ? "block" : "hidden"
-              }`}
-            >
-              <div className="flex justify-around font-bold sm:p-32">
-                <div className="text-center sm:w-full">
-                  <h2 className="text-brown sm:text-7xl text-xl">Gender</h2>
-                  <div className="flex justify-center my-8 mx-3 sm:m-8 font-normal">
-                    <select
-                      className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
-                      value={gender}
-                      onChange={handleGenderChange}
-                      aria-label="gender"
-                    >
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                    </select>
+                  <div className="flex justify-center">
+                    <TimePicker
+                      minute={minute}
+                      minuteChange={handleMinuteChange}
+                      hour={hour}
+                      hourChange={handleHourChange}
+                      period={period}
+                      periodChange={handlePeriodChange}
+                    />
                   </div>
                 </div>
-                <div className="text-center w-full">
-                  <h2 className="text-brown sm:text-7xl text-lg">Weight</h2>
-                  <div className="">
-                    <div className="flex justify-center font-normal">
-                      <input
-                        className="my-8 mx-2 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
-                        value={weight}
-                        onChange={handleWeightChange}
-                        aria-label="weight"
-                      />
-                      <div className="flex justify-center">
-                        <select
-                          className="my-8 bg-lightblue rounded-md sm:text-2xl text-lg text-center"
-                          value={weightUnit}
-                          onChange={handleWeightUnit}
-                        >
-                          <option value="lbs">lbs</option>
-                          <option value="kg">kg</option>
-                        </select>
+              </div>
+              <div
+                id="slide2"
+                className={`carousel-item relative w-full flex flex-col justify-center ${
+                  slideIndex === 2 ? "block" : "hidden"
+                }`}
+              >
+                <div className="flex justify-around font-bold sm:p-32">
+                  <div className="text-center sm:w-full">
+                    <h2 className="text-brown sm:text-7xl text-xl">Gender</h2>
+                    <div className="flex justify-center my-8 mx-3 sm:m-8 font-normal">
+                      <select
+                        className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
+                        value={gender}
+                        onChange={handleGenderChange}
+                        aria-label="gender"
+                      >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="text-center w-full">
+                    <h2 className="text-brown sm:text-7xl text-lg">Weight</h2>
+                    <div className="">
+                      <div className="flex justify-center font-normal">
+                        <input
+                          className="my-8 mx-2 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
+                          value={weight}
+                          onChange={handleWeightChange}
+                          aria-label="weight"
+                        />
+                        <div className="flex justify-center">
+                          <select
+                            className="my-8 bg-lightblue rounded-md sm:text-2xl text-lg text-center"
+                            value={weightUnit}
+                            onChange={handleWeightUnit}
+                          >
+                            <option value="lbs">lbs</option>
+                            <option value="kg">kg</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              id="slide3"
-              className={`carousel-item relative w-full flex flex-col ${
-                slideIndex === 3 ? "block" : "hidden"
-              }`}
-            >
-              <div className="flex justify-center h-full items-center ">
-                <div className="flex flex-col justify-center text-center w-full">
-                  <div className="flex flex-col justify-around h-1/2 w-full">
-                    <h2 className="text-brown sm:text-6xl text-lg font-bold sm:mb-14">
-                      Outside Climate
+              <div
+                id="slide3"
+                className={`carousel-item relative w-full flex flex-col ${
+                  slideIndex === 3 ? "block" : "hidden"
+                }`}
+              >
+                <div className="flex justify-center h-full items-center ">
+                  <div className="flex flex-col justify-center text-center w-full">
+                    <div className="flex flex-col justify-around h-1/2 w-full">
+                      <h2 className="text-brown sm:text-6xl text-lg font-bold sm:mb-14">
+                        Outside Climate
+                      </h2>
+                      <div className="flex justify-center sm:m-8 pt-7 sm:p-0">
+                        <select
+                          className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
+                          value={climate}
+                          onChange={handleClimateChange}
+                          aria-label="climate"
+                        >
+                          <option value="cold">Cold</option>
+                          <option value="neutral">Neutral</option>
+                          <option value="warm">Warm</option>
+                          <option value="hot">Hot</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-center w-full overflow-clip">
+                    <h2 className="text-brown sm:text-6xl text-lg font-bold">
+                      Minutes of Exercise Today
                     </h2>
-                    <div className="flex justify-center sm:m-8 pt-7 sm:p-0">
-                      <select
-                        className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
-                        value={climate}
-                        onChange={handleClimateChange}
-                        aria-label="climate"
-                      >
-                        <option value="cold">Cold</option>
-                        <option value="neutral">Neutral</option>
-                        <option value="warm">Warm</option>
-                        <option value="hot">Hot</option>
-                      </select>
+                    <div className="flex justify-center">
+                      <input
+                        className="sm:m-8 my-4 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
+                        value={exerciseMinutes}
+                        onChange={handleExerciseChange}
+                        aria-label="exercise"
+                      />
                     </div>
                   </div>
                 </div>
-                <div className="text-center w-full overflow-clip">
-                  <h2 className="text-brown sm:text-6xl text-lg font-bold">
-                    Minutes of Exercise Today
-                  </h2>
-                  <div className="flex justify-center">
+              </div>
+              <div
+                id="slide4"
+                className={`carousel-item relative max-h-full w-full max-w-2/3 flex flex-col ${
+                  slideIndex === 4 ? "block" : "hidden"
+                }`}
+              >
+                <div className="ml-5 sm:ml-0">
+                  <div className="flex justify-center my-10">
+                    <h2 className="text-brown font-bold sm:text-4xl text-xl">
+                      Your Water Intake So Far
+                    </h2>
+                  </div>
+                  <div className="flex justify-center mx-4 mb-8">
+                    <p className="text-center text-gray-600 sm:text-lg text-sm">
+                      Often, we don&apos;t precisely measure the water we
+                      consume daily, relying instead on our familiar cups and
+                      bottles. Select containers below that closely match the
+                      size and shape of your own to estimate your water intake.
+                      Hover over the pictures for more details and swipe to see
+                      more. If you happen to know the exact amount you drank
+                      today, feel free to enter it below. You can also combine
+                      container estimates with exact amounts for a more accurate
+                      record.
+                    </p>
+                  </div>
+                  <div className="flex justify-center mb-5">
                     <input
-                      className="sm:m-8 my-4 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
-                      value={exerciseMinutes}
-                      onChange={handleExerciseChange}
-                      aria-label="exercise"
+                      className="bg-transparent border-2 border-brown rounded text-center sm:p-3 text-xl font-semibold text-lightblue"
+                      value={directInput}
+                      onChange={(e) => setDirectInput(e.target.value)}
+                    />
+                    <select
+                      className="bg-transparent border-2 border-brown rounded text-center sm:p-3 text-xl font-semibold text-lightblue"
+                      value={directInputUnit}
+                      onChange={handleDirectInputUnit}
+                    >
+                      <option value="ml">ml</option>
+                      <option value="oz">oz</option>
+                    </select>
+                  </div>
+                  <div className="flex justify-center">
+                    <Intake
+                      bottles={bottles}
+                      handleBottleChange={handleBottleChange}
                     />
                   </div>
                 </div>
-              </div>
-            </div>
-            <div
-              id="slide4"
-              className={`carousel-item relative max-h-full w-full max-w-2/3 flex flex-col ${
-                slideIndex === 4 ? "block" : "hidden"
-              }`}
-            >
-              <div className="ml-5 sm:ml-0">
-                <div className="flex justify-center my-10">
-                  <h2 className="text-brown font-bold sm:text-4xl text-xl">
-                    Your Water Intake So Far
-                  </h2>
-                </div>
-                <div className="flex justify-center mx-4 mb-8">
-                  <p className="text-center text-gray-600 sm:text-lg text-sm">
-                    Often, we don&apos;t precisely measure the water we consume
-                    daily, relying instead on our familiar cups and bottles.
-                    Select containers below that closely match the size and
-                    shape of your own to estimate your water intake. Hover over
-                    the pictures for more details and swipe to see more. If you
-                    happen to know the exact amount you drank today, feel free
-                    to enter it below. You can also combine container estimates
-                    with exact amounts for a more accurate record.
-                  </p>
-                </div>
-                <div className="flex justify-center mb-5">
-                  <input
-                    className="bg-transparent border-2 border-brown rounded text-center sm:p-3 text-xl font-semibold text-lightblue"
-                    value={directInput}
-                    onChange={(e) => setDirectInput(e.target.value)}
-                  />
-                  <select
-                    className="bg-transparent border-2 border-brown rounded text-center sm:p-3 text-xl font-semibold text-lightblue"
-                    value={directInputUnit}
-                    onChange={handleDirectInputUnit}
-                  >
-                    <option value="ml">ml</option>
-                    <option value="oz">oz</option>
-                  </select>
-                </div>
                 <div className="flex justify-center">
-                  <Intake
-                    bottles={bottles}
-                    handleBottleChange={handleBottleChange}
-                  />
+                  <button
+                    className="btn btn-info flex justify-center w-1/6 text-xl"
+                    onClick={clearButton}
+                  >
+                    Clear
+                  </button>
                 </div>
               </div>
-              <div className="flex justify-center">
-                <button className="btn btn-info flex justify-center w-1/6"
-                onClick={clearButton}>
-                  Clear
-                </button>
-              </div>
             </div>
-          </div>
-          <button
-            href={`#slide${slideIndex + 1}`}
-            className="btn btn-success btn-circle size-12"
-            onClick={next}
-          >
-            ❯
-          </button>
-        </main>
-      </section>
-      <Results
-        hours={hour}
-        minute={minute}
-        period={period}
-        gender={gender}
-        weight={weight}
-        climate={climate}
-        exerciseMinutes={exerciseMinutes}
-        bottles={bottles}
-        weightUnit={weightUnit}
-        directInputUnit={directInputUnit}
-        directInput={directInput}
-      />
+            <button
+              href={`#slide${slideIndex + 1}`}
+              className="btn btn-success btn-circle size-12"
+              onClick={next}
+            >
+              ❯
+            </button>
+          </main>
+        </section>
+        <Results
+          hours={hour}
+          minute={minute}
+          period={period}
+          gender={gender}
+          weight={weight}
+          climate={climate}
+          exerciseMinutes={exerciseMinutes}
+          bottles={bottles}
+          weightUnit={weightUnit}
+          directInputUnit={directInputUnit}
+          directInput={directInput}
+        />
+      </div>
     </>
   );
 });

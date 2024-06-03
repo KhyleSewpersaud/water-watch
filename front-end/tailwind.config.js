@@ -18,7 +18,7 @@ export default {
         'lightbrown': '#CABFAE'
       },
       fontFamily: {
-        display: ["Rubik", "sans-serif"]
+        display: ["Bricolage Grotesque", "sans-serif"]
       }
     },
   },

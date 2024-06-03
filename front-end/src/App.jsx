@@ -1,12 +1,7 @@
 import "./App.css";
 import { useRef } from "react";
 import Questions from "./components/Questions.jsx";
-import nalgene from "./assets/nalgene.png";
-import regularmug from "./assets/regularmug.png";
-import purelife from "./assets/purelife.png";
-import gatoradesquirt from "./assets/gatoradesquirt.png";
-import starbuckscup from "./assets/starbuckscup.png";
-import addition from "./assets/addition.png";
+import Average from "./components/Average.jsx";
 
 function App() {
   const scrollToQuestionRef = useRef();
@@ -26,8 +21,8 @@ function App() {
         </div>
       </header>
 
-      <section className="sm:flex justify-around sm:my-20 px-6">
-        <div className="flex justify-start flex-col p-4 text-center sm:text-left ml-2 sm:ml-0">
+      <section className="font-display sm:flex justify-center sm:my-20 px-6">
+        <div className="flex justify-start flex-col p-4 text-center sm:text-left ml-2 sm:ml-0 sm:mr-32">
           <h2 className="text-brown sm:text-7xl font-semibold m-2 text-4xl">
             Are You Drinking
           </h2>
@@ -42,35 +37,11 @@ function App() {
           </button>
         </div>
 
-        <figure className="flex flex-col ml-3 sm:ml-0">
-          <div className="flex justify-end">
-            <img src={nalgene} className="max-h-40 max-w-lg -mx-12" />
-            <img src={regularmug} className="max-h-40 max-w-lg -mx-16 mt-6" />
-            <img src={purelife} className="max-h-40 max-w-lg -mx-12" />
-            <img src={gatoradesquirt} className="max-h-40 max-w-lg -mx-10" />
-          </div>
-
-          <div className="flex justify-between">
-            <div className="flex items-end">
-              <img src={addition} className="max-h-28 max-w-md -mx-12" />
-            </div>
-            <img src={starbuckscup} className="max-h-40 max-w-lg -mx-12" />
-          </div>
-
-          <div className="divider bg-darkblue max-h-2"></div>
-
-          <div className="flex justify-start flex-col ">
-            <h3 className="text-2xl font-bold whitespace-normal leading-2 text-brown text-center sm:text-left">
-              Recommended Daily Water Intake For The
-            </h3>
-            <h3 className="text-3xl font-extrabold whitespace-normal leading-2 text-darkblue text-center sm:text-left">
-              Average Man
-            </h3>
-          </div>
-        </figure>
+        <Average />
       </section>
+      <div className="spacer"></div>
       <Questions ref={scrollToQuestionRef} />
-      <footer className="flex justify-center mt-20 pb-5 px-4">
+      <footer className="flex justify-center mt-20 pb-5 px-4 font-display">
         <div className="text-center">
           <span className="font-bold">Disclaimer:</span> The information provided on this website is for general
           informational purposes only and is not intended as medical advice. The

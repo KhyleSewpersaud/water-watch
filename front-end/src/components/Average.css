@@ -1,0 +1,139 @@
+/* Average.css */
+.dot {
+  height: 25rem;
+  width: 25rem;
+  border: 5px dotted black;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dot img {
+  position: absolute;
+}
+
+.dot img.nalgene {
+  top: 20%;
+  left: 10%;
+  max-height: 8rem;
+  max-width: 8rem;
+}
+
+.dot img.regularmug {
+  top: 15%;
+  right: 10%;
+  max-height: 10rem;
+  max-width: 10rem;
+}
+
+.dot img.purelife {
+  bottom: 10%;
+  left: 10%;
+  max-height: 8rem;
+  max-width: 8rem;
+}
+
+.dot img.gatoradesquirt {
+  bottom: 10%;
+  right: 10%;
+  max-height: 8rem;
+  max-width: 8rem;
+}
+
+.dot img.starbuckscup {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 8rem;
+  max-width: 8rem;
+}
+
+.figure {
+  position: relative;
+}
+
+@media (min-width: 320px) and (max-width: 639px) {
+  .arrow {
+    display: none;
+  }
+
+  .arrow-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dot {
+    height: 20rem;
+    width: 20rem;
+  }
+
+  .dot img.nalgene {
+    top: 10%;
+    left: 10%;
+    max-height: 8rem;
+    max-width: 7rem;
+  }
+
+  .dot img.regularmug {
+    top: 10%;
+    right: 10%;
+    max-height: 10rem;
+    max-width: 10rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .arrow {
+    position: absolute;
+    width: 12rem;
+    top: 77%;
+    right: 40%;
+    transform: rotate(-20deg);
+  }
+
+  .arrow-text {
+    position: absolute;
+    right: 40%;
+    top: 102%;
+  }
+}
+
+@media (min-width: 1170px) {
+  .arrow {
+    position: absolute;
+    width: 12rem;
+    top: 75%;
+    right: 78%;
+  }
+
+  .arrow-text {
+    position: absolute;
+    right: 80%;
+    top: 103%;
+  }
+}
+
+@media (min-width: 1254px) {
+  .arrow {
+    position: absolute;
+    width: 12rem;
+    top: 75%;
+    right: 82%;
+  }
+
+  .arrow-text {
+    position: absolute;
+    right: 122%;
+  }
+}
