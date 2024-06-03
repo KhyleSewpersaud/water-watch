@@ -213,9 +213,9 @@ function Results({
   function dailyIntake() {
     let multiplier;
     if (gender === "male") {
-      multiplier = 0.5;
+      multiplier = 0.6;
     } else {
-      multiplier = 0.4;
+      multiplier = 0.5;
     }
   
     let weightInLbs = weight;
