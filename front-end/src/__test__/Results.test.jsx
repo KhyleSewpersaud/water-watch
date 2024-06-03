@@ -14,7 +14,7 @@ vi.mock('../components/BottleOutput', () => ({
 
   
 describe('Results Component', () => {
-    // it('should generate a solution', () => {
+    it('should generate a solution', () => {
     //     const mockProps = {
     //     hours: "08",
     //     minute: "30",
@@ -31,5 +31,5 @@ describe('Results Component', () => {
 
     //     render(<Results {...mockProps} />);
 
-    // });
+    });
 });
