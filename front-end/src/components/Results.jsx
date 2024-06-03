@@ -209,38 +209,41 @@ function Results({
   }
 
   timeUntilSleep();
+
   function dailyIntake() {
-    var multiplier;
-    var sum = 0;
+    let multiplier;
     if (gender === "male") {
-      multiplier = 0.65;
-    } else {
       multiplier = 0.5;
-    }
-
-    if (weightUnit === "kg") {
-      weight = weight * 2.2;
-    }
-
-    sum += multiplier * weight;
-
-    if (climate === "cold") {
-      sum += 8;
-    } else if (climate === "neutral") {
-      sum += 4;
-    } else if (climate === "warm") {
-      sum += 8;
-    } else if (climate === "hot") {
-      sum += 16;
     } else {
-      sum += 4;
+      multiplier = 0.4;
     }
-
-    sum += (exerciseMinutes / 30) * 12;
-
-    sum = sum * 29.57;
-
-    return sum;
+  
+    let weightInLbs = weight;
+    if (weightUnit === "kg") {
+      weightInLbs = weight * 2.2; // Convert kg to lbs
+    }
+  
+    let intake = multiplier * weightInLbs;
+  
+    switch (climate) {
+      case "cold":
+        intake += 8;
+        break;
+      case "neutral":
+        intake += 4;
+        break;
+      case "warm":
+        intake += 8;
+        break;
+      case "hot":
+        intake += 16;
+        break;
+      default:
+        intake += 4;
+    }
+  
+    intake += (exerciseMinutes / 30) * 12;
+    return intake * 29.5735; // Convert oz to ml
   }
 
   function consumed() {
@@ -256,11 +259,13 @@ function Results({
     } else {
       total += directInput * 29.57;
     }
+    console.log(total)
     return total;
   }
 
   function remaining() {
-    return dailyIntake() - consumed();
+    const remainingAmount = dailyIntake() - consumed();
+    return Math.max(remainingAmount, 0);
   }
 
   function totalWaterLeft() {
