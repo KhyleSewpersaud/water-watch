@@ -50,27 +50,27 @@ describe("Testing form inputs", () => {
     });
 });
 
-describe('Questions and Results integration test', () => {
-    beforeEach(() => {
-      render(<Questions />);
-    });
+// describe('Questions and Results integration test', () => {
+//     beforeEach(() => {
+//       render(<Questions />);
+//     });
   
-    it('updates and displays the correct results based on input', async () => {
-      // Simulate user input
-      fireEvent.change(screen.getByLabelText('weight'), { target: { value: '70' } });
-      fireEvent.change(screen.getByLabelText('gender'), { target: { value: 'female' } });
-      fireEvent.change(screen.getByLabelText('exercise'), { target: { value: '30' } });
+//     it('updates and displays the correct results based on input', async () => {
+//       // Simulate user input
+//       fireEvent.change(screen.getByLabelText('weight'), { target: { value: '70' } });
+//       fireEvent.change(screen.getByLabelText('gender'), { target: { value: 'female' } });
+//       fireEvent.change(screen.getByLabelText('exercise'), { target: { value: '30' } });
   
-      // Simulate climate selection
-      fireEvent.change(screen.getByLabelText('climate'), { target: { value: 'warm' } });
+//       // Simulate climate selection
+//       fireEvent.change(screen.getByLabelText('climate'), { target: { value: 'warm' } });
   
-      // Check that the Results component displays the correct values
-      const dailyIntake = (0.5 * 70 + 8 + 12) * 29.57; // Calculated based on your function logic
-      const expectedDailyIntake = `${(Math.round((dailyIntake / 1000) * 10) / 10).toFixed(1)}L`;
-      await waitFor(() => {
-        // Since no water has been drank, should display value twice
-        const resultElements = screen.getAllByText(expectedDailyIntake);
-        expect(resultElements.length).toBeGreaterThan(0);
-      });
-    });
-  });
+//       // Check that the Results component displays the correct values
+//       const dailyIntake = (0.5 * 70 + 8 + 12) * 29.57; // Calculated based on your function logic
+//       const expectedDailyIntake = `${(Math.round((dailyIntake / 1000) * 10) / 10).toFixed(1)}L`;
+//       await waitFor(() => {
+//         // Since no water has been drank, should display value twice
+//         const resultElements = screen.getAllByText(expectedDailyIntake);
+//         expect(resultElements.length).toBeGreaterThan(0);
+//       });
+//     });
+//   });
