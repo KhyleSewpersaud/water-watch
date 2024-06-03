@@ -293,9 +293,9 @@ function Results({
         >
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/4 mb-5 sm:mb-0">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
-              Over the Day You Need to Drink
+              Over the day, drink a total of
             </h3>
-            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center h-64">
               <BottleOutput
                 key={bottlesUsed[0]}
                 image={allBottleData[bottlesUsed[0]].image}
@@ -306,9 +306,9 @@ function Results({
           </div>
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/4">
             <h3 className="text-center text-brown font-semibold text-3xl mb-2">
-              Every Hour Until You Sleep You Need to Drink
+              Every hour until bed, drink
             </h3>
-            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center h-64">
               <BottleOutput
                 key={bottlesUsed[0]}
                 image={allBottleData[bottlesUsed[0]].image}
@@ -356,7 +356,6 @@ function Results({
 
       let res = [];
 
-      
       const start = Date.now(); // Record the start time
       const duration = 1000; // Set a default maximum duration (in milliseconds)
 
@@ -364,7 +363,7 @@ function Results({
       function dfs(i, cur, total) {
         // Check if the function has been running longer than the maximum duration
         if (Date.now() - start > duration) {
-          return; 
+          return;
         }
         if (total >= remainingWater - 200 && total <= remainingWater + 200) {
           res.push(cur.slice());
@@ -398,9 +397,9 @@ function Results({
         <div className="flex flex-col sm:flex-row justify-center w-full items-center sm:items-start">
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/3 mb-5 sm:mb-0">
             <h3 className="text-center text-brown font-semibold text-xl sm:text-3xl mb-2">
-              Over the the Day You Need to Drink
+              Over the day, drink a total of
             </h3>
-            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center h-64">
               {Object.entries(finalResult).map(([index, quantity]) => (
                 <BottleOutput
                   key={index}
@@ -413,9 +412,9 @@ function Results({
           </div>
           <div className="flex flex-col justify-center items-center bg-lightbrown p-5 rounded-xl mx-2 w-full sm:w-1/3">
             <h3 className="text-center text-brown font-semibold text-xl sm:text-3xl mb-2">
-              Every Hour Until You Sleep You Need to Drink
+              Every hour until bed, drink
             </h3>
-            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center">
+            <figure className="bg-lightbeige rounded-xl p-3 w-full flex justify-center h-64">
               <BottleOutput
                 key={randomHourlyBottle.index}
                 image={allBottleData[randomHourlyBottle.index].image}
@@ -509,7 +508,7 @@ function Results({
             />
           </figure>
           <h3 className="text-center text-brown font-semibold sm:text-3xl mb-2">
-            Every 15 Minutes When Exercising
+            Every 15 Minutes When Active
           </h3>
         </div>
       );

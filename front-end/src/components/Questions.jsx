@@ -288,15 +288,13 @@ const Questions = forwardRef((props, ref) => {
                   </div>
                   <div className="flex justify-center mx-4 mb-8">
                     <p className="text-center text-gray-600 sm:text-lg text-sm">
-                      Often, we don&apos;t precisely measure the water we
-                      consume daily, relying instead on our familiar cups and
-                      bottles. Select containers below that closely match the
-                      size and shape of your own to estimate your water intake.
-                      Hover over the pictures for more details and swipe to see
-                      more. If you happen to know the exact amount you drank
-                      today, feel free to enter it below. You can also combine
-                      container estimates with exact amounts for a more accurate
-                      record.
+                      Often, we don&apos;t measure our daily water intake
+                      exactly, relying on familiar cups and bottles. Choose
+                      containers below that match yours to estimate your intake.
+                      Hover for details and swipe for more options. If you know
+                      the exact amount you drank, enter it below. Any bottle you
+                      plan to use, press the + button once. Combine estimates
+                      with exact amounts for accuracy.
                     </p>
                   </div>
                   <div className="flex justify-center mb-5">
