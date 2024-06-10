@@ -58,43 +58,43 @@ const allBottleData = [
   {
     image: starbuckscup,
     name: "Starbucks Cup",
-    style: "w-40 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 700 | oz: 23.7",
   },
   {
     image: gallon,
     name: "Gallon Bottle",
-    style: "w-20 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 3700 | oz: 125.1",
   },
   {
     image: hydroflask,
     name: "Hydroflask",
-    style: "w-12 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 530 | oz: 17.9",
   },
   {
     image: lululemon,
     name: "Lululemon",
-    style: "w-36 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 700 | oz: 23.7",
   },
   {
     image: stanley,
     name: "Stanley",
-    style: "w-40 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 1200 | oz: 40.6",
   },
   {
     image: yetitumbler,
     name: "Yeti Tumbler",
-    style: "w-40 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 850| oz: 28.7",
   },
   {
     image: teacup,
     name: "Teacup",
-    style: "w-20 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 300 | oz: 10.1",
   },
   {
@@ -112,7 +112,7 @@ const allBottleData = [
   {
     image: largepurelife,
     name: "Large Purelife",
-    style: "w-28 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 1500 | oz: 50.7",
   },
   {
@@ -124,31 +124,31 @@ const allBottleData = [
   {
     image: smallfiji,
     name: "Small Fiji",
-    style: "w-36 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 330 | oz: 11.2",
   },
   {
     image: redsolocup,
     name: "Red Solo Cup",
-    style: "w-40 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 470 | oz: 15.9",
   },
   {
     image: smallglass,
     name: "Small Glass",
-    style: "w-40 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 300 | oz: 10.1",
   },
   {
     image: regularglass,
     name: "Regular Glass",
-    style: "w-24 h-auto",
+    style: "w-32 h-auto",
     info: "ml: 450 | oz: 15.2",
   },
   {
     image: waterfountain,
     name: "Water Fountain",
-    style: "w-40 h-auto",
+    style: "w-32 h-auto",
     info: "1oz/30ml per second",
   },
 ];
@@ -269,10 +269,10 @@ function Results({
   }
 
   function totalWaterLeft() {
-    if (remaining() <= 0) {
+    if (remaining() <= 200) {
       return (
         <div className="bg-lightbeige rounded-xl p-3 flex justify-center">
-          <h3 className="text-2xl font-semibold">
+          <h3 className="text-2xl font-semibold text-center">
             Congrats! You drank your daily required intake!
           </h3>
         </div>

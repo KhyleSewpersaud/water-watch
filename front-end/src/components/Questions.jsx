@@ -321,7 +321,7 @@ const Questions = forwardRef((props, ref) => {
                 </div>
                 <div className="flex justify-center">
                   <button
-                    className="btn btn-info flex justify-center w-1/6 text-xl"
+                    className="btn btn-info flex justify-center sm:w-1/6 w-1/2 text-xl"
                     onClick={clearButton}
                   >
                     Clear
