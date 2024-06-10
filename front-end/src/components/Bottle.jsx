@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./Bottle.css";
 
 function Bottle({
   index,
@@ -25,7 +26,7 @@ function Bottle({
 
   return (
     <>
-      <div className="flex flex-col justify-center mx-10 shrink-0 w-fit">
+      <div className="flex flex-col justify-center items-center mx-10 shrink-0 w-fit">
         <div className="flex justify-center relative group">
           <button onClick={decrease} className="text-2xl font-semibold px-1">
             -
@@ -40,7 +41,7 @@ function Bottle({
             +
           </button>
         </div>
-        <div className="flex justify-center ml-3">
+        <div className="flex justify-center">
           <input
             type="number"
             step="0.01"

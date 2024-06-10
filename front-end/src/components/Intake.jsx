@@ -23,25 +23,25 @@ import "./Intake.css"
 const bottleData = [
   { image: nalgene, name: "Nalgene", style: "w-32 h-auto", info: "ml: 1000 | oz: 33.8" },
   { image: gatoradesquirt, name: "Gatorade Squirt", style: "w-32 h-auto", info: "ml: 950 | oz: 32.1"},
-  { image: starbuckscup, name: "Starbucks Cup", style: "w-40 h-auto", info: "ml: 700 | oz: 23.7" },
-  { image: gallon, name: "Gallon Bottle", style: "w-20 h-auto", info: "ml: 3700 | oz: 125.1" },
-  { image: hydroflask, name: "Hydroflask", style: "w-12 h-auto", info: "ml: 530 | oz: 17.9" },
-  { image: lululemon, name: "Lululemon", style: "w-36 h-auto", info: "ml: 700 | oz: 23.7"},
-  { image: stanley, name: "Stanley", style: "w-40 h-auto", info: "ml: 1200 | oz: 40.6" },
-  { image: yetitumbler, name: "Yeti Tumbler", style: "w-40 h-auto", info: "ml: 850| oz: 28.7" },
+  { image: starbuckscup, name: "Starbucks Cup", style: "w-32 h-auto", info: "ml: 700 | oz: 23.7" },
+  { image: gallon, name: "Gallon Bottle", style: "w-32 h-auto", info: "ml: 3700 | oz: 125.1" },
+  { image: hydroflask, name: "Hydroflask", style: "w-32 h-auto", info: "ml: 530 | oz: 17.9" },
+  { image: lululemon, name: "Lululemon", style: "w-32 h-auto", info: "ml: 700 | oz: 23.7"},
+  { image: stanley, name: "Stanley", style: "w-32 h-auto", info: "ml: 1200 | oz: 40.6" },
+  { image: yetitumbler, name: "Yeti Tumbler", style: "w-32 h-auto", info: "ml: 850| oz: 28.7" },
 ];
 
 const cupData = [
   { image: teacup, name: "Teacup", style: "w-32 h-auto", info: "ml: 300 | oz: 10.1" },
-  { image: regularmug, name: "Regular Mug", style: "w-48 h-auto", info: "ml: 550 | oz: 18.6" },
+  { image: regularmug, name: "Regular Mug", style: "w-32 h-auto", info: "ml: 550 | oz: 18.6" },
   { image: purelife, name: "Purelife", style: "w-32 h-auto", info: "ml: 500 | oz: 16.9" },
-  { image: largepurelife, name: "Large Purelife", style: "w-28 h-auto", info: "ml: 1500 | oz: 50.7" },
+  { image: largepurelife, name: "Large Purelife", style: "w-32 h-auto", info: "ml: 1500 | oz: 50.7" },
   { image: largevoss, name: "Large Voss", style: "w-32 h-auto", info: "ml: 850 | oz: 28.7" },
-  { image: smallfiji, name: "Small Fiji", style: "w-36 h-auto", info: "ml: 330 | oz: 11.2" },
-  { image: redsolocup, name: "Red Solo Cup", style: "w-40 h-auto", info: "ml: 470 | oz: 15.9" },
-  { image: smallglass, name: "Small Glass", style: "w-40 h-auto", info: "ml: 300 | oz: 10.1" },
-  { image: regularglass, name: "Regular Glass", style: "w-24 h-auto", info: "ml: 450 | oz: 15.2" },
-  { image: waterfountain, name: "Water Fountain", style: "w-40 h-auto", info: "1oz/30ml per second" },
+  { image: smallfiji, name: "Small Fiji", style: "w-32 h-auto", info: "ml: 330 | oz: 11.2" },
+  { image: redsolocup, name: "Red Solo Cup", style: "w-32 h-auto", info: "ml: 470 | oz: 15.9" },
+  { image: smallglass, name: "Small Glass", style: "w-32 h-auto", info: "ml: 300 | oz: 10.1" },
+  { image: regularglass, name: "Regular Glass", style: "w-32 h-auto", info: "ml: 450 | oz: 15.2" },
+  { image: waterfountain, name: "Water Fountain", style: "w-32 h-auto", info: "1oz/30ml per second" },
 ];
 
 function Intake({ bottles, handleBottleChange }) {
