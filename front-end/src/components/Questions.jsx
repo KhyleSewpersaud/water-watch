@@ -192,10 +192,10 @@ const Questions = forwardRef((props, ref) => {
                   slideIndex === 2 ? "block" : "hidden"
                 }`}
               >
-                <div className="flex justify-around font-bold sm:p-32">
+                <div className="flex sm:flex-row flex-col justify-around font-bold sm:p-32">
                   <div className="text-center sm:w-full">
-                    <h2 className="text-brown sm:text-7xl text-xl">Gender</h2>
-                    <div className="flex justify-center my-8 mx-3 sm:m-8 font-normal">
+                    <h2 className="text-brown sm:text-7xl text-4xl">Gender</h2>
+                    <div className="flex justify-center sm:my-8 mx-3 sm:m-8 font-normal">
                       <select
                         className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
                         value={gender}
@@ -207,19 +207,19 @@ const Questions = forwardRef((props, ref) => {
                       </select>
                     </div>
                   </div>
-                  <div className="text-center w-full">
-                    <h2 className="text-brown sm:text-7xl text-lg">Weight</h2>
+                  <div className="text-center w-full mt-10 sm:mt-0">
+                    <h2 className="text-brown sm:text-7xl text-4xl">Weight</h2>
                     <div className="">
                       <div className="flex justify-center font-normal">
                         <input
-                          className="my-8 mx-2 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
+                          className="sm:my-8 mx-2 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
                           value={weight}
                           onChange={handleWeightChange}
                           aria-label="weight"
                         />
                         <div className="flex justify-center">
                           <select
-                            className="my-8 bg-lightblue rounded-md sm:text-2xl text-lg text-center"
+                            className="sm:my-8 bg-lightblue rounded-md sm:text-2xl text-lg text-center"
                             value={weightUnit}
                             onChange={handleWeightUnit}
                           >
@@ -238,15 +238,15 @@ const Questions = forwardRef((props, ref) => {
                   slideIndex === 3 ? "block" : "hidden"
                 }`}
               >
-                <div className="flex justify-center h-full items-center ">
+                <div className="flex justify-center sm:flex-row flex-col h-full items-center ">
                   <div className="flex flex-col justify-center text-center w-full">
-                    <div className="flex flex-col justify-around h-1/2 w-full">
-                      <h2 className="text-brown sm:text-6xl text-lg font-bold sm:mb-14">
+                    <div className="flex flex-col justify-between h-1/2 w-full">
+                      <h2 className="text-brown sm:text-6xl text-3xl font-bold">
                         Outside Climate
                       </h2>
-                      <div className="flex justify-center sm:m-8 pt-7 sm:p-0">
+                      <div className="flex justify-center sm:m-8">
                         <select
-                          className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
+                          className="w-1/2 sm:mt-14 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
                           value={climate}
                           onChange={handleClimateChange}
                           aria-label="climate"
@@ -259,13 +259,13 @@ const Questions = forwardRef((props, ref) => {
                       </div>
                     </div>
                   </div>
-                  <div className="text-center w-full overflow-clip">
-                    <h2 className="text-brown sm:text-6xl text-lg font-bold">
+                  <div className="text-center w-full overflow-clip mt-10 sm:mt-0">
+                    <h2 className="text-brown sm:text-6xl text-3xl font-bold">
                       Minutes of Exercise Today
                     </h2>
                     <div className="flex justify-center">
                       <input
-                        className="sm:m-8 my-4 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
+                        className="sm:m-8 w-1/2 bg-lightblue rounded-md sm:text-4xl text-lg text-center"
                         value={exerciseMinutes}
                         onChange={handleExerciseChange}
                         aria-label="exercise"
