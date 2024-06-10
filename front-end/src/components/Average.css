@@ -25,8 +25,8 @@
 .dot img.regularmug {
   top: 15%;
   right: 10%;
-  max-height: 10rem;
-  max-width: 10rem;
+  max-height: 7rem;
+  max-width: 7rem;
 }
 
 .dot img.purelife {
@@ -88,8 +88,8 @@
   .dot img.regularmug {
     top: 10%;
     right: 10%;
-    max-height: 10rem;
-    max-width: 10rem;
+    max-height: 7rem;
+    max-width: 7rem;
   }
 }
 

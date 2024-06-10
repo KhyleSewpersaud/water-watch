@@ -15,7 +15,7 @@ function App() {
     <>
       <header className="flex justify-center">
         <div className="bg-lightbeige p-8 my-2 sm:w-2/5 w-11/12 rounded-xl flex justify-center drop-shadow-md ml-4 sm:ml-0">
-          <h1 className="font-display text-lightblue font-bold sm:text-5xl text-xl">
+          <h1 className="font-display text-lightblue font-bold text-5xl">
             Water Watch
           </h1>
         </div>
