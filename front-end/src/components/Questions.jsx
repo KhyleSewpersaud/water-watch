@@ -354,7 +354,7 @@ const Questions = forwardRef((props, ref) => {
                     />
                   </div>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center ml-4 sm:ml-0">
                   <CustomBottle
                     bottles={bottles}
                     handleBottleChange={handleBottleChange}

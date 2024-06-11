@@ -168,7 +168,7 @@ function Results({
   customCapacity,
   customFile,
 }) {
-  
+
   allBottleData[18] = {
     image: customFile,
     name: "Custom Bottle",
@@ -282,7 +282,7 @@ function Results({
   function totalWaterLeft() {
     if (remaining() <= 200) {
       return (
-        <div className="bg-lightbeige rounded-xl p-3 flex justify-center">
+        <div className="bg-lightbeige rounded-xl p-3 flex justify-center mr-3 sm:mr-0">
           <h3 className="text-2xl font-semibold text-center">
             Congrats! You drank your daily required intake!
           </h3>

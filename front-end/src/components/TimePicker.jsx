@@ -30,7 +30,7 @@ function TimePicker(props) {
         max="59"
         value={minute}
         onChange={minuteChange}
-        className="input input-bordered sm:w-1/4 w-1/2 text-lightblue font-bold sm:text-7xl text-4xl text-start border-0 h-fit bg-transparent"
+        className="input input-bordered sm:w-1/4 w-7/12 text-lightblue font-bold sm:text-7xl text-4xl text-start border-0 h-fit bg-transparent"
       />
 
       <select
