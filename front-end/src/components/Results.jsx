@@ -166,17 +166,16 @@ function Results({
   directInputUnit,
   directInput,
   customCapacity,
-  customFile
+  customFile,
 }) {
-
   allBottleData.push({
-    image: `${customFile}`,
-    name: "Custom BOttle",
+    image: customFile,
+    name: "Custom Bottle",
     style: "w-32 h-auto",
-    info: `${customCapacity}`
-  })
+    info: `${customCapacity}`,
+  });
 
-  bottleStorage[18] = customCapacity
+  bottleStorage[18] = customCapacity;
 
   const [refreshKey, setRefreshKey] = useState(0);
 
@@ -229,14 +228,14 @@ function Results({
     } else {
       multiplier = 0.5;
     }
-  
+
     let weightInLbs = weight;
     if (weightUnit === "kg") {
       weightInLbs = weight * 2.2; // Convert kg to lbs
     }
-  
+
     let intake = multiplier * weightInLbs;
-  
+
     switch (climate) {
       case "cold":
         intake += 8;
@@ -253,7 +252,7 @@ function Results({
       default:
         intake += 4;
     }
-  
+
     intake += (exerciseMinutes / 30) * 12;
     return intake * 29.5735; // Convert oz to ml
   }
@@ -271,7 +270,6 @@ function Results({
     } else {
       total += directInput * 29.57;
     }
-    console.log(total)
     return total;
   }
 
@@ -595,9 +593,8 @@ Results.propTypes = {
   weightUnit: PropTypes.string.isRequired,
   directInputUnit: PropTypes.string.isRequired,
   directInput: PropTypes.number.isRequired,
-  customCapacity: PropTypes.number.isRequired,     
-  customUnit: PropTypes.string.isRequired,         
-  customFile: PropTypes.string.isRequired,  
+  customCapacity: PropTypes.number.isRequired,
+  customFile: PropTypes.string,
 };
 
 export default Results;

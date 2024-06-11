@@ -80,7 +80,7 @@ CustomBottle.propTypes = {
   handleCapacityChange: PropTypes.func.isRequired,
   unit: PropTypes.string.isRequired,
   handleUnitChange: PropTypes.func.isRequired,
-  file: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  file: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   handleFileChange: PropTypes.func.isRequired,
 };
 

@@ -21,10 +21,11 @@ const EditBottle = ({capacity, handleCapacity, unit, handleUnit, file, handleFil
             type="file"
             id="file-input"
             accept="image/*"
-            capture="environment"
+            capture="camera"
             onChange={handleFileChange}
             style={{ display: "none" }}
           />
+          {console.log(file)}
           <label
             htmlFor="file-input"
             className="cursor-pointer btn btn-primary"

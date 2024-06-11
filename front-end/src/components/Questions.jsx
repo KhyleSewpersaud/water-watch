@@ -157,7 +157,7 @@ const Questions = forwardRef((props, ref) => {
   function handleFileChange(e) {
     const file = e.target.files[0];
     if (file) {
-      const maxSizeMB = 2;
+      const maxSizeMB = 5;
       const maxSizeBytes = maxSizeMB * 1024 * 1024;
       if (file.size > maxSizeBytes) {
         alert(
@@ -166,6 +166,7 @@ const Questions = forwardRef((props, ref) => {
         return;
       }
       setFile(URL.createObjectURL(file));
+      console.log(file)
     }
   }
   // ########## CustomBottle ########## //
