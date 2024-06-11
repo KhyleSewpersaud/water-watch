@@ -23,6 +23,7 @@ const EditBottle = ({capacity, handleCapacity, unit, handleUnit, file, handleFil
             accept="image/*"
             capture="camera"
             onChange={handleFileChange}
+            multiple
             style={{ display: "none" }}
           />
           {console.log(file)}

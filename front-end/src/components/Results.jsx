@@ -168,12 +168,13 @@ function Results({
   customCapacity,
   customFile,
 }) {
-  allBottleData.push({
+  
+  allBottleData[18] = {
     image: customFile,
     name: "Custom Bottle",
     style: "w-32 h-auto",
     info: `${customCapacity}`,
-  });
+  }
 
   bottleStorage[18] = customCapacity;
 
