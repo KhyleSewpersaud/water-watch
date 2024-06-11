@@ -232,7 +232,7 @@ const Questions = forwardRef((props, ref) => {
                     <h2 className="text-brown sm:text-7xl text-4xl">Gender</h2>
                     <div className="flex justify-center sm:my-8 mx-3 sm:m-8 font-normal">
                       <select
-                        className="sm:w-1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
+                        className="w-3/4 sm:1/2 bg-lightblue rounded-md sm:text-3xl text-lg text-center"
                         value={gender}
                         onChange={handleGenderChange}
                         aria-label="gender"

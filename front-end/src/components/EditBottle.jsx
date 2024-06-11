@@ -21,7 +21,6 @@ const EditBottle = ({capacity, handleCapacity, unit, handleUnit, file, handleFil
             type="file"
             id="file-input"
             accept="image/*"
-            capture="camera"
             onChange={handleFileChange}
             multiple
             style={{ display: "none" }}
