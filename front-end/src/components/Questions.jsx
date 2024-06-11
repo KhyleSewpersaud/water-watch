@@ -3,6 +3,7 @@ import { forwardRef, useState, useEffect } from "react";
 import TimePicker from "./TimePicker.jsx";
 import Intake from "./Intake.jsx";
 import Results from "./Results.jsx";
+import CustomBottle from "./CustomBottle.jsx";
 
 const Questions = forwardRef((props, ref) => {
   // ########## Slider Buttons ########## //
@@ -98,17 +99,9 @@ const Questions = forwardRef((props, ref) => {
 
   const handleHourChange = (e) => {
     let value = e.target.value;
-
     value = value.slice(-2);
-
-    // Ensure value is between 1 and 12
-    value = Math.min(Math.max(parseInt(value), 1), 12).toString();
-
-    setHour(value);
-
-    if (isNaN(value)) {
-      setHour("1"); // Set hour to 1 if the value is NaN
-    }
+    value = Math.min(Math.max(parseInt(value) || 0, 0), 12).toString();
+    setHour(value.padStart(2, "0"));
   };
 
   const handleMinuteChange = (e) => {
@@ -127,7 +120,7 @@ const Questions = forwardRef((props, ref) => {
 
   // ########## Intake ########## //
   const [directInput, setDirectInput] = useState(0);
-  const [bottles, setBottles] = useState(Array(18).fill(0));
+  const [bottles, setBottles] = useState(Array(19).fill(0));
 
   const handleBottleChange = (index, quantity) => {
     const newBottles = [...bottles];
@@ -136,10 +129,51 @@ const Questions = forwardRef((props, ref) => {
   };
   // ########## Intake ########## //
 
+  // ########## CustomBottle ########## //
+  const [capacity, handleCapacity] = useState(0);
+  const [unit, handleUnit] = useState("ml");
+  const [file, setFile] = useState(null);
+
+  function handleCapacityChange(e) {
+    let value = e.target.value;
+
+    if (value === "" || isNaN(value)) {
+      value = 0;
+    } else {
+      value = Number(value);
+
+      value = Math.max(value, 0).toString();
+    }
+
+    e.target.value = value;
+
+    handleCapacity(value);
+  }
+
+  function handleUnitChange(e) {
+    handleUnit(e.target.value);
+  }
+
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const maxSizeMB = 2;
+      const maxSizeBytes = maxSizeMB * 1024 * 1024;
+      if (file.size > maxSizeBytes) {
+        alert(
+          `File size exceeds ${maxSizeMB} MB. Please upload a smaller image.`
+        );
+        return;
+      }
+      setFile(URL.createObjectURL(file));
+    }
+  }
+  // ########## CustomBottle ########## //
+
   const carouselHeight = slideIndex === 4 ? "auto" : "60vh";
 
   const clearButton = () => {
-    setBottles(Array(18).fill(0));
+    setBottles(Array(19).fill(0));
   };
 
   return (
@@ -320,6 +354,18 @@ const Questions = forwardRef((props, ref) => {
                   </div>
                 </div>
                 <div className="flex justify-center">
+                  <CustomBottle
+                    bottles={bottles}
+                    handleBottleChange={handleBottleChange}
+                    capacity={capacity}
+                    handleCapacityChange={handleCapacityChange}
+                    unit={unit}
+                    handleUnitChange={handleUnitChange}
+                    file={file}
+                    handleFileChange={handleFileChange}
+                  />
+                </div>
+                <div className="flex justify-center mt-10">
                   <button
                     className="btn btn-info flex justify-center sm:w-1/6 w-1/2 text-xl"
                     onClick={clearButton}
@@ -350,6 +396,8 @@ const Questions = forwardRef((props, ref) => {
           weightUnit={weightUnit}
           directInputUnit={directInputUnit}
           directInput={directInput}
+          customCapacity={capacity}
+          customFile={file}
         />
       </div>
     </>

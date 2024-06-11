@@ -19,7 +19,7 @@ function TimePicker(props) {
         max="12"
         value={hour}
         onChange={hourChange}
-        className="input input-bordered sm:w-1/6 w-1/3 text-lightblue font-bold sm:text-7xl text-5xl text-end border-0 h-fit bg-transparent"
+        className="input input-bordered sm:w-1/4 w-1/2 text-lightblue font-bold sm:text-7xl text-5xl text-end border-0 h-fit bg-transparent"
       />
       <label className="font-semibold sm:text-7xl text-5xl sm:mb-3 mb-1 text-lightblue">:</label>
       

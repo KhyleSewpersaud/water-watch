@@ -165,7 +165,19 @@ function Results({
   weightUnit,
   directInputUnit,
   directInput,
+  customCapacity,
+  customFile
 }) {
+
+  allBottleData.push({
+    image: `${customFile}`,
+    name: "Custom BOttle",
+    style: "w-32 h-auto",
+    info: `${customCapacity}`
+  })
+
+  bottleStorage[18] = customCapacity
+
   const [refreshKey, setRefreshKey] = useState(0);
 
   function handleRefresh() {
@@ -563,7 +575,7 @@ function Results({
         </div>
         <div className="flex justify-center">
           <button className="btn btn-accent text-lg" onClick={handleRefresh}>
-            Refresh Results
+            Show New Results
           </button>
         </div>
       </div>
@@ -583,6 +595,9 @@ Results.propTypes = {
   weightUnit: PropTypes.string.isRequired,
   directInputUnit: PropTypes.string.isRequired,
   directInput: PropTypes.number.isRequired,
+  customCapacity: PropTypes.number.isRequired,     
+  customUnit: PropTypes.string.isRequired,         
+  customFile: PropTypes.string.isRequired,  
 };
 
 export default Results;
