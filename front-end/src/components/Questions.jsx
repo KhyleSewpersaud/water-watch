@@ -399,6 +399,7 @@ const Questions = forwardRef((props, ref) => {
           directInput={directInput}
           customCapacity={capacity}
           customFile={file}
+          customUnit={unit}
         />
       </div>
     </>

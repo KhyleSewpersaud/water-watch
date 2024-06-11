@@ -167,7 +167,17 @@ function Results({
   directInput,
   customCapacity,
   customFile,
+  customUnit
 }) {
+
+  let info;
+
+  if (customUnit === "ml") {
+    info = Math.round((customCapacity / 29.57) * 10) / 10
+  } 
+  else {
+    info = Math.round(customCapacity * 29.57) 
+  }
 
   allBottleData[18] = {
     image: customFile,
@@ -176,7 +186,7 @@ function Results({
     info: `${customCapacity}`,
   }
 
-  bottleStorage[18] = customCapacity;
+  bottleStorage[18] = info;
 
   const [refreshKey, setRefreshKey] = useState(0);
 
@@ -596,6 +606,7 @@ Results.propTypes = {
   directInput: PropTypes.number.isRequired,
   customCapacity: PropTypes.number.isRequired,
   customFile: PropTypes.string,
+  customUnit: PropTypes.number.isRequired,
 };
 
 export default Results;

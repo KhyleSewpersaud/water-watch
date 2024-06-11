@@ -25,7 +25,6 @@ const EditBottle = ({capacity, handleCapacity, unit, handleUnit, file, handleFil
             multiple
             style={{ display: "none" }}
           />
-          {console.log(file)}
           <label
             htmlFor="file-input"
             className="cursor-pointer btn btn-primary"
