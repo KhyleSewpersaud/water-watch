@@ -173,10 +173,10 @@ function Results({
   let info;
 
   if (customUnit === "ml") {
-    info = Math.round((customCapacity / 29.57) * 10) / 10
+    info = Math.round((customCapacity) * 10) / 10
   } 
   else {
-    info = Math.round(customCapacity * 29.57) 
+    info = Math.round((customCapacity * 29.57) * 10) / 10 
   }
 
   allBottleData[18] = {
