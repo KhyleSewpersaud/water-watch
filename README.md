@@ -1,4 +1,5 @@
 # Are you drinking enough water?
+site: https://www.waterwatch.me
 Water Watch is a website designed to make tracking your daily water intake visually appealing and straightforward. Visualizing the recommended amount of water can be challenging with just numbers and measurements. Instead, Water Watch simplifies this by allowing users to track their intake using familiar containers, such as cups or water bottles. Users can easily drag and drop to indicate how much they've consumed and be shown in a friendly manner how much left they should consume.
 
 ## Project Documentation
